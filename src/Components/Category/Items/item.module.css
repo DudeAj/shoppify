@@ -1,0 +1,23 @@
+.ItemContainer {
+    
+    margin: 2px 5px;
+    border-radius: 5px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.ItemBox {
+    display: flex;
+}
+
+.ItemBox span {
+    padding-left: 5px;
+}
+
+.ItemBox p:hover {
+    color: orange;
+    cursor: pointer;
+}
+
+.ItemBox span:hover {
+    background-color:orange;
+}

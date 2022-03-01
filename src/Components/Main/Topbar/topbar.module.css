@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    margin: 10px 20px;
+}
+
+.SubContainer {
+    
+}
+
+.SubContainer p span{
+    font-weight: 600;
+    color: orange;
+
+}
