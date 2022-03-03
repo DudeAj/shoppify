@@ -2,8 +2,6 @@
     background-color:  #FFF0DE;
     width: 25%;
     border-radius: 4px;
-    display: flex;
-    align-items: center;
     flex-direction: column;
 }
 

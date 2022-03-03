@@ -1,13 +1,14 @@
 import React from 'react'
 import ListCategory from './ListCategory/ListCategory'
 import classes from './ShoppingList.module.css';
+import { useSelector } from 'react-redux';
 const ShoppingList = () => {
-  return (
-    
-         <div className={`${classes.ShoppingList}`}>
-      <p>Shopping list</p>
-      <ListCategory/>
 
+  const cartTitle = useSelector(state => state.data.Cart)
+  return (
+    <div className={classes.ShoppingList}>
+      <p>{cartTitle.title}</p>
+      <ListCategory />
 
     </div>
   )

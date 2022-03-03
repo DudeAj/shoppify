@@ -1,21 +1,20 @@
 import React from 'react'
-import cancelSave from './cancelSave/cancelSave.jsx'
-import deleteAddToList from './deleteAddToList/deleteAddToList.jsx'
-import NameChanger from './NameChanger/NameChanger'     
-import classes from './actionContainer.module.css'                 
+import CancelSave from './cancelSave/CancelSave.jsx'
+import DeleteAddToList from './deleteAddToList/DeleteAddToList.jsx'
+import NameChanger from './NameChanger/NameChanger'
+import classes from './actionContainer.module.css'
 
 const ActionContainer = () => {
   return (
     <div className={classes.actionContainer}>
-      action ActionContainer
-      
-        <NameChanger/>
-        <cancelSave/>
-        <deleteAddToList/>
+
+      <NameChanger />
+      <CancelSave />
+      <DeleteAddToList />
 
     </div>
   )
-  
+
 }
 
 export default ActionContainer

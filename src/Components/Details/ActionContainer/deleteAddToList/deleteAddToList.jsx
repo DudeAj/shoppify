@@ -1,9 +1,9 @@
 import React from 'react'
 
-const deleteAddToList = () => {
+const DeleteAddToList = () => {
   return (
     <div>deleteAddToList</div>
   )
 }
 
-export default deleteAddToList
+export default DeleteAddToList
