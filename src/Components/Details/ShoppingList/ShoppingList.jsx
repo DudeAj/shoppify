@@ -7,7 +7,7 @@ const ShoppingList = () => {
   const cartTitle = useSelector(state => state.data.Cart)
   return (
     <div className={classes.ShoppingList}>
-      <p>{cartTitle.title}</p>
+      <p>My Cart</p>
       <ListCategory />
     </div>
   )

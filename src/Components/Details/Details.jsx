@@ -7,7 +7,7 @@ import AddRecipe from '../AddRecipe/AddRecipe';
 
 
 const Details = () => {
-    const [showList, setShowList] = useState(false);
+    const [showList, setShowList] = useState(true);
     return (
         <div className={classes.details}>
             {showList
