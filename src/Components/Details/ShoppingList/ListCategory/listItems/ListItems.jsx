@@ -9,10 +9,14 @@ const listItems = () => {
     <div className={classes.list_items}>
       <p>Item name</p>
       <div>
-        <DeleteOutlineIcon sx={{ color: "#FFF", background: "#F9A10A" }} />
+        <div className={classes.btn_container}>
+          <div className={classes.delete_btn}>
+          <DeleteOutlineIcon sx={{ color: "#FFF", background: "#F9A10A", fontSize: 18 }} />
+          </div>
         <RemoveIcon sx={{ color: "#F9A10A" }} />
       <button>3 pcs</button>
       <AddIcon sx={{ color: "#F9A10A" }}/>
+        </div>
       </div>
       </div>
   )

@@ -6,8 +6,8 @@ import CreateIcon from '@mui/icons-material/Create';
 const ShoppingList = () => {
   return (
     
-         <div className={`${classes.ShoppingList}`}>
-           <div>
+         <div className={classes.ShoppingList}>
+           <div className={classes.list_container}>
              <div className={classes.list_header}>
              <p>Shopping list</p>
              <CreateIcon />

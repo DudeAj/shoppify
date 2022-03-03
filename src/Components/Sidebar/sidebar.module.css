@@ -1,5 +1,33 @@
 .sidebar {
-    background-color: green;
+    background: #FFFFFF;
     width: 6%;
     height:100vh;
+}
+.icons{
+    display: flex;
+    flex-direction: column;
+    margin: 150px  30px 1rem  -15px ; 
+    justify-content: space-between;
+   
+}
+img{
+    margin: 1rem;
+
+}
+.icons ul li{
+    margin-top: 25px;
+    list-style: none;
+    
+
+}
+.icons ul li a{
+    text-decoration: none;
+    color: black;
+}
+.cart{
+    margin: 180px 30px 0px 22px;
+    background-color:#F9A109;
+    width:40px;
+    border-radius: 15px;
+
 }

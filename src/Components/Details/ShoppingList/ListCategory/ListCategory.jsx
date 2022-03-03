@@ -4,7 +4,7 @@ import classes from './listCategory.module.css';
 
 const ListCategory = () => {
   return (
-    <div class={classes.list_category}>
+    <div className={classes.list_category}>
       <p>
       Category name
       </p>
