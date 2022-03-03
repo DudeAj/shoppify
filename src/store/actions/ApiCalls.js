@@ -14,7 +14,6 @@ export const getCategory = () => {
                     Items: responseData[category].items
                 });
             }
-            //console.log(dataset);
             dispatch(apiCalls.setCategories(dataset));
 
         } catch (err) {

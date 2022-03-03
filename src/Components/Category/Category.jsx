@@ -26,14 +26,11 @@ const Category = ({ name, id, data, handleCategory }) => {
             <p className={classes.title}>{name}</p>
             <div className={classes.Items}>
                 {allItems.map(recipe => {
-
                     if (recipe.category === id) {
                         return <Items key={recipe.id} name={name} id={id} data={recipe} click={handleCategory} />
                     }
-
                 })}
             </div>
-
         </div>
     )
 }
