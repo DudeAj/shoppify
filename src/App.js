@@ -1,10 +1,11 @@
 
 import './App.css';
 import Details from './Components/Details/Details';
-import Main from './Components/Main/Main';
+import ShoppingHistory from './Components/Sidebar/Shopping-History/ShoppingHistory';
 import Sidebar from './Components/Sidebar/Sidebar';
+import { Switch, Route, } from "react-router-dom";
+import Main from './Components/Main/Main';
 import axios from 'axios';
-import { Switch, Route } from 'react-router-dom';
 
 
 axios.defaults.baseURL = "https://shoppify-13b6a-default-rtdb.firebaseio.com/";
@@ -12,9 +13,11 @@ axios.defaults.baseURL = "https://shoppify-13b6a-default-rtdb.firebaseio.com/";
 function App() {
   return (
     <div className="App">
+
       <Sidebar />
       <Switch>
-        <Route path="/" component={Main} />
+        <Route exact path="/" component={Main} />
+        <Route path="/shoppinghistory" component={ShoppingHistory} />
       </Switch>
       <Details />
     </div>

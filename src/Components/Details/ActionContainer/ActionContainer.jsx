@@ -1,6 +1,6 @@
 import React from 'react'
 import CancelSave from './cancelSave/CancelSave.jsx'
-import DeleteAddToList from './deleteAddToList/DeleteAddToList.jsx'
+import DeleteAddToList from './deleteAddToList/deleteAddToList';
 import NameChanger from './NameChanger/NameChanger'
 import classes from './actionContainer.module.css'
 

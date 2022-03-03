@@ -4,7 +4,6 @@ import classes from "./banner.module.css";
 const Banner = () => {
   return (
     <div className={classes.banner}>
-
       <img
         src="	https://shoppingify-lucas.netlify.app/d2e572da108f8547118b20cdb9f6e7e2.svg"
         alt="bottle"

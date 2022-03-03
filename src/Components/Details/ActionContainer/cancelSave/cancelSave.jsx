@@ -1,9 +1,9 @@
 import React from 'react'
 
-const cancelSave = () => {
+const CancelSave = () => {
   return (
     <div>cancelSave</div>
   )
 }
 
-export default cancelSave
+export default CancelSave

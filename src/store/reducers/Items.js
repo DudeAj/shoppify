@@ -2,8 +2,9 @@ import * as types from '../actions/actionTypes';
 
 const initialState = {
     Categories: [],
+    items: [],
+    cart: [],
     error: null,
-
     status: null
 }
 
@@ -24,7 +25,13 @@ const reducer = (state = initialState, action) => {
         case types.SET_CART:
             return {
                 ...state,
-                Cart: action.payload
+                cart: action.payload
+            }
+
+        case types.LOAD_ITEMS:
+            return {
+                ...state,
+                items: action.payload
             }
 
         case types.SET_STATUS:

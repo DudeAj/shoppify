@@ -8,6 +8,7 @@
 
 .ItemBox {
     display: flex;
+    background-color: #fff;
 }
 
 .ItemBox span {

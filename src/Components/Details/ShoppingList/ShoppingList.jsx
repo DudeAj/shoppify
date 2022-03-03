@@ -9,7 +9,6 @@ const ShoppingList = () => {
     <div className={classes.ShoppingList}>
       <p>{cartTitle.title}</p>
       <ListCategory />
-
     </div>
   )
 }

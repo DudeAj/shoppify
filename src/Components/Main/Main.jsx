@@ -4,29 +4,39 @@ import classes from './main.module.css';
 import Category from '../Category/Category';
 import { useSelector, useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
-import { getCategory } from '../../store/actions/';
+import { getCategory, LoadItems, setCart } from '../../store/actions/';
 
 const Main = () => {
     const categories = useSelector(state => state.data.Categories);
-    // console.log(categories);
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(getCategory())
+        dispatch(LoadItems())
     }, []);
 
-    const category = [];
 
-    const setCartItem = (id) => {
+    let cart = [];
+    const setCartItem = (id, name, data, amount) => {
 
-        if (!category.includes(id)) {
-            category.push(id);
+        const filtered = cart.filter(item => item.id === data.id).length > 0 ? true : false;
+
+        if (!filtered) {
+            const faq = { ...data, amount: amount }
+            cart.push(faq)
         }
-        console.log(category);
+
+        if (filtered) {
+            const newArr = cart.map(obj => {
+                if (obj.id === data.id) {
+                    return { ...obj, amount: amount };
+                }
+                return obj;
+            });
+            cart = newArr;
+        }
+        dispatch(setCart(cart));
     }
-
-
-
 
     return (
         <div className={classes.main}>

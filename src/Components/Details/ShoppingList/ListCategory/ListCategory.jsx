@@ -4,8 +4,7 @@ import ListItems from './listItems/ListItems'
 const ListCategory = () => {
   return (
     <div>ListCategory
-        
-        <ListItems/>
+      <ListItems />
     </div>
   )
 }
