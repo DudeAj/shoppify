@@ -2,4 +2,23 @@
     height: 70vh;
     width: 100%;
     background-color: blanchedalmond;
+    font-size: 24px;
+}
+
+.list_header > p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #34333A;
+    margin: 30px 0;
+}
+
+.list_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.ShoppingList div:first-child {
+    margin: 0 12%;
 }
