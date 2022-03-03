@@ -1,0 +1,32 @@
+.NameChanger{
+width: 309.89px;
+height: 61.25px;
+/* background-color: aquamarine; */
+margin: auto;
+width: 309.89px;
+height: 61.25px;
+border: 2px solid #F9A109;
+border-radius: 12px;
+}
+
+.NameChanger input{
+    width: 222.54px;
+height: 61.25px;
+background-color: rgb(248, 247, 247);
+/* border: 2px solid #F9A109; */
+box-sizing: border-box;
+border-radius: 12px;
+outline: none;
+border: none;
+}
+
+.NameChanger button{
+    cursor: pointer;
+    width: 87.35px;
+height: 61.25px;
+background: #F9A109;
+border-radius: 12px;
+border: none;
+outline: none;
+text-decoration: none;
+}
