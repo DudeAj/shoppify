@@ -1,0 +1,7 @@
+.container {
+    width:25%;
+    background-color:orangered;
+    position: absolute;
+    right: 0;
+    height: 100%;
+}

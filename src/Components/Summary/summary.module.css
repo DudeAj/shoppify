@@ -1,0 +1,28 @@
+.Summary {
+  background-color: #fafafa;
+  width: 25%;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  right: 0;
+    bottom: 0;
+    top: 0;
+
+}
+.button {
+  display: flex;
+  align-items: center;
+  margin-top: 27.84px;
+  width: 33px;
+  height: 18px;
+  font-size: 14px;
+line-height: 17px;
+color: #F9A109;
+border: none;
+outline: none;
+/* background-color: black; */
+cursor: pointer;
+margin-right: 267px;
+}

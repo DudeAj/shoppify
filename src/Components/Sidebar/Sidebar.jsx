@@ -6,7 +6,7 @@ import RotateLeftIcon from '@mui/icons-material/RotateLeft';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Link } from 'react-router-dom'
-const Sidebar = () => {
+const Sidebar = ({ openCart }) => {
     return (
         <div className={classes.sidebar}>
             <img className={classes.img} src={img} alt="image"></img>
@@ -17,7 +17,7 @@ const Sidebar = () => {
                     <li><Link to='/charts'><BarChartIcon /></Link></li>
                 </ul>
             </div>
-            <div className={classes.cart}>
+            <div className={classes.cart} onClick={() => openCart(true)}>
                 <ShoppingCartIcon style={{ width: '20px', marginLeft: '8px' }} />
             </div>
 

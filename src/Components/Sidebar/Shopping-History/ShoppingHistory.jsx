@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import classes from "./shoppinghistory.module.css";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import EventNoteIcon from '@mui/icons-material/EventNote';
+import { useDispatch, useSelector } from "react-redux";
+import { FetchOrders } from '../../../store/actions';
 
 const ShoppingList = () => {
+  const dispatch = useDispatch();
+  const orders = useSelector(state => state.data.orders)
+
+  useEffect(() => {
+    dispatch(FetchOrders())
+  }, []);
   return (
     <div className={classes.container}>
       <div className={classes.main}>

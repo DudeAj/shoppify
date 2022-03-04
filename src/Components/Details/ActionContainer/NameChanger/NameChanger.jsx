@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "./nameChanger.module.css";
 
-const NameChanger = () => {
+const NameChanger = ({ handleName, setChangeName }) => {
+  const [name, setName] = useState("");
+  const submitForm = (e) => {
+    e.preventDefault();
+    handleName(name);
+    setChangeName(false);
+  }
+
   return (
     <div className={classes.NameChanger}>
-      <input type="text" placeholder="Enter a name" /> 
-      <button>save</button>{" "}
+      <form onSubmit={submitForm}>
+        <input type="text" placeholder="Enter List Name" value={name} onChange={(e) => setName(e.target.value)} />
+        <button type="submit">Save</button>{" "}
+      </form>
     </div>
   );
 };

@@ -1,5 +1,9 @@
 .container {
     padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height:100%;
 }
 
 .container h1 {

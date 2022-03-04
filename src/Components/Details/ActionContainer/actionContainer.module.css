@@ -1,6 +1,9 @@
 .actionContainer{
-    background-color: white;
     width: 100%;
-    height: 25%;
+    padding: 20px 0;
     display: flex;
+    position: absolute;
+    bottom: 0;
+    background-color:whitesmoke;
+
 }

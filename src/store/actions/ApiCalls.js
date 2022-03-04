@@ -6,14 +6,15 @@ export const getCategory = () => {
         try {
             const response = await axios.get('Categories.json');
             const responseData = response.data
+
             const dataset = [];
             for (const category in responseData) {
                 dataset.push({
                     id: category,
                     title: responseData[category].title,
-                    Items: responseData[category].items
                 });
             }
+            console.log(dataset);
             dispatch(apiCalls.setCategories(dataset));
 
         } catch (err) {
@@ -52,7 +53,7 @@ export const addCategory = (cat, name, icon, note) => {
                 }
             );
 
-            dispatch(addItem(response.data.name, name, icon, note))
+            dispatch(addItemNew(response.data.name, name, icon, note))
             console.log(response.data);
 
         } catch (err) {
@@ -83,22 +84,50 @@ export const addItemNew = (id, name, icon, note) => {
 }
 
 
-export const addItem = (id, name, icon, note) => {
-    console.log("its called", id)
+export const OrderNow = (OrderData) => {
     return async dispatch => {
         try {
-            const response = await axios.post(`Categories/${id}/items.json`,
+            const response = await axios.post(`Orders.json`,
                 {
-                    name: name,
-                    icon: icon,
-                    notes: note,
+                    title: "ajay's Order",
+                    Items: { ...OrderData },
+                    time: new Date()
                 }
             );
-            dispatch(apiCalls.setStatus("Item Added"))
-            console.log("Item Added", response.data);
+            // dispatch(apiCalls.setStatus("Item Added"))
+            console.log("Ordered", response.data);
         }
         catch (err) {
             dispatch(apiCalls.setError(err.message));
         }
     }
 }
+
+export const FetchOrders = (OrderData) => {
+    return async dispatch => {
+        try {
+            const response = await axios.get(`Orders.json`);
+            // console.log(response.data);
+            // dispatch(apiCalls.setOrders())
+
+            const responseData = response.data
+            const dataset = [];
+            for (const item in responseData) {
+                dataset.push({
+                    id: item,
+                    info: responseData[item].Items,
+                    time: responseData[item].time,
+                    title: responseData[item].title
+                });
+            }
+            dispatch(apiCalls.setOrders(dataset))
+            console.log(dataset);
+        }
+        catch (err) {
+            dispatch(apiCalls.setError(err.message));
+        }
+    }
+}
+
+
+

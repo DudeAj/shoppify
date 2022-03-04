@@ -6,17 +6,6 @@ const Category = ({ name, id, data, handleCategory }) => {
 
     const allItems = useSelector(state => state.data.items);
 
-    //console.log(allItems)
-    const items = [];
-    for (const item in data) {
-        items.push({
-            id: item,
-            icon: data[item].icon,
-            name: data[item].name,
-            note: data[item].notes,
-        });
-    }
-
     if (allItems.length === 0) {
         return <div>loading</div>
     }

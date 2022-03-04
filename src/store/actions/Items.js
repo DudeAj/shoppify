@@ -34,3 +34,25 @@ export const setStatus = (msg) => {
         payload: msg
     }
 }
+
+
+export const remove = (id) => {
+    return {
+        type: types.REMOVE_ITEM,
+        payload: id
+    }
+}
+
+export const add = (id) => {
+    return {
+        type: types.ADD_ITEM,
+        payload: id
+    }
+}
+
+export const setOrders = (data) => {
+    return {
+        type: types.SET_ORDER,
+        payload: data
+    }
+}

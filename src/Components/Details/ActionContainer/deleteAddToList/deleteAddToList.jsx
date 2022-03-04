@@ -1,5 +1,5 @@
 import React from 'react'
-import classes from './deleteAddToList.module.css'
+import classes from './deleteAddtoList.module.css'
 
 const DeleteAddToList = () => {
   return (

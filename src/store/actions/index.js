@@ -1,12 +1,17 @@
 export {
     getCategory,
-    addItem,
     addCategory,
     addItemNew,
-    LoadItems
+    LoadItems,
+    OrderNow,
+    FetchOrders
 } from './ApiCalls';
 
 export {
-    setCart
+    setCart,
+    remove,
+    add
 } from './Items';
+
+
 

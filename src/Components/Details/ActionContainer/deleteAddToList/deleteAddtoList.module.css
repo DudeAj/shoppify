@@ -1,10 +1,10 @@
-.cancelSave{
+.deleteAddtoList{
     color: black;
     /* background-color: black; */
-    margin: 0 auto;
+    margin: auto;
 }
 
-.cancel{
+.delete{
     width: 87.35px;
     height: 61.25px;
     background: #ffffff;
@@ -16,7 +16,7 @@
     margin-right: 43.56px;
    
 }
-.save{
+.Addtolist{
     width: 87.35px;
 height: 61.25px;
 background: #F9A109;

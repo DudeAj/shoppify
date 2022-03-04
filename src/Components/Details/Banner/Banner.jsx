@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./banner.module.css";
 
-const Banner = () => {
+const Banner = ({ click }) => {
   return (
     <div className={classes.banner}>
       <img
@@ -11,7 +11,7 @@ const Banner = () => {
 
       <div className={classes.box}>
         <p>Didn’t find what you need?</p>
-        <button>Add item</button>
+        <button onClick={() => click(false)}>Add item</button>
       </div>
     </div>
   );
