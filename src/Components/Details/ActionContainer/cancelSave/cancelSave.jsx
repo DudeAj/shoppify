@@ -1,9 +1,14 @@
 import React from 'react'
+import classes from './cancelSave.module.css'
 
-const cancelSave = () => {
+const CancelSave = () => {
   return (
-    <div>cancelSave</div>
+    <div className={classes.cancelSave}>
+      
+      <button className={classes.cancel}>cancel</button>
+      <button className= {classes.save}>Save</button>
+      </div>
   )
 }
 
-export default cancelSave
+export default CancelSave

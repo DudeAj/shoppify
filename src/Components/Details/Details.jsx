@@ -7,9 +7,9 @@ import ActionContainer from './ActionContainer/ActionContainer.jsx'
 const Details = () => {
     return (
         <div className={`${classes.details}`}>
-        <Banner/>
-        <ShoppingList/>
-        <ActionContainer/>
+        {/* <Banner/> */}
+        {/* <ShoppingList/> */}
+        {/* <ActionContainer/> */}
 
         
 
