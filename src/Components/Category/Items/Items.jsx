@@ -11,7 +11,7 @@ const Items = ({ data, name, id, click }) => {
 
     return (
         <div className={classes.ItemContainer}>
-            <p>{data.id}</p>
+
             <div className={classes.ItemBox}>
 
                 <p>{data.name}</p>

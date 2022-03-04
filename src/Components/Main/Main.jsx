@@ -8,6 +8,7 @@ import { getCategory, LoadItems, setCart } from '../../store/actions/';
 
 const Main = () => {
     const categories = useSelector(state => state.data.Categories);
+    const itemStore = useSelector(state => state.data.items);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -18,9 +19,7 @@ const Main = () => {
 
     let cart = [];
     const setCartItem = (id, name, data, amount) => {
-
         const filtered = cart.filter(item => item.id === data.id).length > 0 ? true : false;
-
         if (!filtered) {
             const faq = { ...data, amount: amount }
             cart.push(faq)
@@ -43,7 +42,10 @@ const Main = () => {
             <Topbar />
             <div className={classes.Elements}>
                 {categories.map(item => {
-                    return <Category key={item.id} name={item.title} handleCategory={setCartItem} id={item.id} data={item.Items} />
+                    const itemcount = itemStore.filter(it => it.category === item.id).length;
+                    if (itemcount > 0) {
+                        return <Category key={item.id} name={item.title} handleCategory={setCartItem} id={item.id} data={item.Items} />
+                    }
                 })}
             </div>
         </div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import CancelSave from './cancelSave/CancelSave.jsx'
+import CancelSave from './cancelSave/cancelSave'
 import DeleteAddToList from './deleteAddToList/deleteAddToList';
 import NameChanger from './NameChanger/NameChanger'
 import classes from './actionContainer.module.css'
