@@ -1,0 +1,27 @@
+.deleteAddtoList{
+    color: black;
+    /* background-color: black; */
+    margin: auto;
+}
+
+.delete{
+    width: 87.35px;
+    height: 61.25px;
+    background: #ffffff;
+    border-radius: 12px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 23px;
+    margin-right: 43.56px;
+   
+}
+.Addtolist{
+    width: 87.35px;
+height: 61.25px;
+background: #F9A109;
+border-radius: 12px;
+outline: none;
+border: none;
+cursor: pointer;
+}
