@@ -25,8 +25,3 @@
     text-transform: capitalize;
 }
 
-
-.ItemBox span:hover {
-    background-color:orange;
-    color: #fff;
-}

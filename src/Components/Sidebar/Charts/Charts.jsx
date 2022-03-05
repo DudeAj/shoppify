@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './Charts.module.css';
-import ProgressBar from 'react-bootstrap/ProgressBar';
+//import ProgressBar from 'react-bootstrap/ProgressBar';
 // import  './Charts.css';
 
 const Charts = () => {

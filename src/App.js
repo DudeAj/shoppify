@@ -33,11 +33,14 @@ function App() {
   return (
     <div className="App">
       <Sidebar openCart={handleCart} />
+      <div className='PageHolder'>
       <Switch>
         <Route exact path="/"><Main setShowCart={itemInfo}/></Route>
         <Route path="/shoppinghistory" component={ShoppingHistory} />
+        <Route path="/charts" component={Charts} />
         <Route path="/orders/:id" component={Orders} />
       </Switch>
+      </div>
       {showCart ? <Details showList={showList} setShowList={setShowList} /> : <Summary itemInfo={summeryData} closeCart={setShowCart} />}
     </div>
   );
