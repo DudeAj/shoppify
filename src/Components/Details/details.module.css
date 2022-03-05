@@ -1,10 +1,24 @@
 .details {
-    background-color:  #FFF0DE;
     width: 25%;
     border-radius: 4px;
-    display: flex;
-    align-items: center;
     flex-direction: column;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
 }
 
+.container {
+    /* width: 25%;
+    position: absolute; */
+    height: 100%;
+    /* background-color: blanchedalmond; */
+    
+}
 
+.BodyContainer {
+    display: flex;
+    
+    flex-direction: column;
+    height:100%;
+}

@@ -1,0 +1,38 @@
+.list_items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 4px 8px;
+}
+
+.list_items p {
+    font-size: 18px;
+    font-weight: 500;
+    color: #000;
+}
+
+.list_items button {
+   
+    font-weight: bold;
+    color:#F9A10A;
+    border: 2px solid #F9A109;
+    box-sizing: border-box;
+    border-radius: 24px;
+    background: #FFF0DE;
+    margin: 0 6px;
+}
+
+.btn_container {
+    display: flex;
+    align-items: center;
+    background: #FFF;
+    border-radius: 12px;
+}
+
+.delete_btn {
+    background:#F9A109;
+    padding: 3px 6px;
+    border-radius: 12px;
+    margin-right: 8px;
+}

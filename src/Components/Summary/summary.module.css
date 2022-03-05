@@ -1,0 +1,47 @@
+.Summary {
+  background-color: antiquewhite;
+  padding-bottom: 20px;
+  width: 25%;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: fixed;
+  right: 0;
+    bottom: 0;
+    top: 0;
+
+}
+
+.Container {
+  overflow-y: scroll;
+  overflow-x: clip;
+  width: 100%;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  margin-top: 27.84px;
+  width: 33px;
+  height: 18px;
+  font-size: 14px;
+line-height: 17px;
+color: #F9A109;
+border: none;
+outline: none;
+/* background-color: black; */
+cursor: pointer;
+margin-right: 267px;
+}
+
+
+.BtnHolder {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  padding:10px 0;
+  background-color: whitesmoke;
+  width: 100%;
+}

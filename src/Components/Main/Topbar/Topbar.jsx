@@ -8,7 +8,7 @@ const Topbar = () => {
                 <p><span>Shoppingify</span> allows you take your shopping list wherever you go</p>
             </div>
             <div className={classes.SearchContainer}>
-                <icon></icon>
+
                 <input type="text" className={classes.input} placeholder="Search Items..." />
             </div>
 
