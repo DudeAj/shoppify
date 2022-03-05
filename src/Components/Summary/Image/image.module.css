@@ -1,3 +1,8 @@
+.Image {
+    display: flex;
+    justify-content: center;
+}
+
 .Image img{
     width: 300.43px;
 height: 219.69px;

@@ -4,12 +4,12 @@ import DeleteAddToList from './deleteAddToList/deleteAddToList';
 import NameChanger from './NameChanger/NameChanger';
 import classes from './actionContainer.module.css'
 
-const ActionContainer = ({ showList, setListName, setChangeName, changeName }) => {
+const ActionContainer = ({ showList, changeName }) => {
   console.log(showList);
   return (
     <div className={classes.actionContainer}>
 
-      {showList ? changeName ? <NameChanger setChangeName={setChangeName} handleName={setListName} /> : <CancelSave /> : <DeleteAddToList />}
+      {showList ? changeName ? <NameChanger /> : <CancelSave /> : <DeleteAddToList />}
       {/* <NameChanger handleName={setListName} /> */}
       {/* <CancelSave /> */}
       {/* <DeleteAddToList /> */}

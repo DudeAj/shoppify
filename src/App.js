@@ -9,22 +9,36 @@ import { Switch, Route, } from "react-router-dom";
 import Main from './Components/Main/Main';
 import axios from 'axios';
 import { useState } from 'react';
-import Cart from './Components/Cart/Cart';
+import Orders from './Components/Sidebar/Shopping-History/Orders/Orders';
+
 
 axios.defaults.baseURL = "https://shoppify-13b6a-default-rtdb.firebaseio.com/";
 
 function App() {
 
-  const [showSummery, setShowSummery] = useState(false);
+  const [showCart, setShowCart] = useState(true);
+  const [showList, setShowList] = useState(true);
+  const [summeryData, setSummeryData] = useState({cat:"", data:{}});
+  //const [showSummery, setShowList] = useState(true);
+
+  const handleCart = () => {
+    setShowCart(true);
+    setShowList(true);
+  }
+
+  const itemInfo = (name,data) => {
+    setSummeryData({cat:name, data:data});
+    setShowCart(false);
+  }
   return (
     <div className="App">
-      <Sidebar openCart={setShowSummery} />
+      <Sidebar openCart={handleCart} />
       <Switch>
-        <Route exact path="/" component={Main} />
+        <Route exact path="/"><Main setShowCart={itemInfo}/></Route>
         <Route path="/shoppinghistory" component={ShoppingHistory} />
+        <Route path="/orders/:id" component={Orders} />
       </Switch>
-      {showSummery ? <Summary closeCart={setShowSummery} /> : <Details />}
-
+      {showCart ? <Details showList={showList} setShowList={setShowList} /> : <Summary itemInfo={summeryData} closeCart={setShowCart} />}
     </div>
   );
 }

@@ -2,7 +2,14 @@ import React, { useState } from 'react'
 import classes from './category.module.css';
 import Items from './Items/Items';
 import { useSelector } from 'react-redux'
-const Category = ({ name, id, data, handleCategory, setShowCart }) => {
+
+const Category = ({ name, id, data, handleCategory }) => {
+
+   //const allItems = useSelector(state => state.data.cart);
+
+    // if (allItems.length === 0) {
+    //     return <div>loading</div>
+    // }
 
     return (
         <div className={classes.category}>
@@ -10,13 +17,7 @@ const Category = ({ name, id, data, handleCategory, setShowCart }) => {
             <div className={classes.Items}>
                 {data.map(recipe => {
                     if (recipe.category === id) {
-                        return <Items 
-                        key={recipe.id} 
-                        name={name} 
-                        id={id} 
-                        data={recipe} 
-                        click={handleCategory}
-                        setShowCart={setShowCart} />
+                        return <Items key={recipe.id} name={name} id={id} data={recipe} />
                     }
                 })}
             </div>

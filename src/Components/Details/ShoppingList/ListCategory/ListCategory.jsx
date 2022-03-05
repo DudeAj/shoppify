@@ -23,7 +23,6 @@ const ListCategory = ({ id, title, data }) => {
           if (data.length > 0) {
             return <ListItems key={item.id} data={item} />
           }
-
         }
       })}
 

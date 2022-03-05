@@ -6,11 +6,11 @@ import { OrderNow } from '../../../../store/actions'
 const CancelSave = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector(state => state.data.cart);
+  const cartName = useSelector(state=> state.data.cartName);
 
   const order = () => {
     console.log("nothing can be do")
-    dispatch(OrderNow(cartItems))
-
+    dispatch(OrderNow(cartItems, cartName))
   }
 
   return (

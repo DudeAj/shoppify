@@ -17,7 +17,7 @@ const Sidebar = ({ openCart }) => {
                     <li><Link to='/charts'><BarChartIcon /></Link></li>
                 </ul>
             </div>
-            <div className={classes.cart} onClick={() => openCart(true)}>
+            <div className={classes.cart} onClick={openCart}>
                 <ShoppingCartIcon style={{ width: '20px', marginLeft: '8px' }} />
             </div>
 

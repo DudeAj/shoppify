@@ -5,10 +5,10 @@ import CreateIcon from '@mui/icons-material/Create';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react'
 
-const ShoppingList = ({ title, change, changeName }) => {
+const ShoppingList = ({ change, changeName }) => {
   const category = useSelector(state => state.data.Categories);
   const cartItems = useSelector(state => state.data.cart);
-
+  const cartName = useSelector(state => state.data.cartName);
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const ShoppingList = ({ title, change, changeName }) => {
     <div className={classes.ShoppingList}>
       <div className={classes.list_container}>
         <div className={classes.list_header}>
-          <p>{title}</p>
+          <p>{cartName}</p>
           <CreateIcon sx={{ cursor: 'pointer' }} onClick={() => change(!changeName)} />
         </div>
         {cart.map(item => {

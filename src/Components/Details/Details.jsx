@@ -6,9 +6,9 @@ import ActionContainer from './ActionContainer/ActionContainer.jsx'
 import AddRecipe from '../AddRecipe/AddRecipe';
 
 
-const Details = () => {
-    const [showList, setShowList] = useState(true);
-    const [listname, setListName] = useState("My List");
+const Details = ({showList, setShowList}) => {
+    //const [showList, setShowList] = useState(true);
+    
     const [changeName, setChangeName] = useState(false);
     return (
         <div className={classes.details}>
@@ -17,10 +17,10 @@ const Details = () => {
                     {showList
                         ? <>
                             <Banner list={showList} click={setShowList} />
-                            <ShoppingList title={listname} changeName={changeName} change={setChangeName} />
+                            <ShoppingList changeName={changeName} change={setChangeName} />
                         </>
                         : <AddRecipe showList />}
-                    {showList ? <ActionContainer showList={showList} changeName={changeName} setChangeName={setChangeName} setListName={setListName} /> : null}
+                    {showList ? <ActionContainer showList={showList} changeName={changeName} setChangeName={setChangeName}  /> : null}
                 </div>
             </div>
         </div>

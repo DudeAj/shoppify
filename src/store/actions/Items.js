@@ -21,6 +21,13 @@ export const setCart = (data) => {
     }
 }
 
+export const setCartName = (name) => {
+    return {
+        type: types.SET_CART_NAME,
+        payload: name
+    }
+}
+
 export const setError = (error) => {
     return {
         type: types.SET_ERROR,

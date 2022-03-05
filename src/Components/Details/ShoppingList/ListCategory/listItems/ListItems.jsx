@@ -25,14 +25,14 @@ const ListItems = ({ data }) => {
       <div>
         <div className={classes.btn_container}>
           <div className={classes.delete_btn}>
-            <DeleteOutlineIcon sx={{ color: "#FFF", background: "#F9A10A", fontSize: 18 }} />
+            <DeleteOutlineIcon fontSize="small" sx={{ color: "#FFF", background: "#F9A10A" }} />
           </div>
 
-          <RemoveIcon sx={{ color: "#F9A10A", cursor: "pointer" }} onClick={removeItem} />
+          <RemoveIcon fontSize="small" sx={{ color: "#F9A10A", cursor: "pointer" }} onClick={removeItem} />
 
           <button>{data.amount} pcs</button>
 
-          <AddIcon sx={{ color: "#F9A10A", cursor: "pointer" }} onClick={addItem} />
+          <AddIcon fontSize="small" sx={{ color: "#F9A10A", cursor: "pointer" }} onClick={addItem} />
         </div>
       </div>
     </div>
