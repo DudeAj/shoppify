@@ -15,9 +15,17 @@ export const setItems = (data) => {
 }
 
 export const setCart = (data) => {
+    console.log(data);
     return {
         type: types.SET_CART,
         payload: data
+    }
+}
+
+export const setCartName = (name) => {
+    return {
+        type: types.SET_CART_NAME,
+        payload: name
     }
 }
 
@@ -46,6 +54,13 @@ export const remove = (id) => {
 export const add = (id) => {
     return {
         type: types.ADD_ITEM,
+        payload: id
+    }
+}
+
+export const deleteCartItem = (id) => {
+    return {
+        type: types.DELETE_ITEM,
         payload: id
     }
 }

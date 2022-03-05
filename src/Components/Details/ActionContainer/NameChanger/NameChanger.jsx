@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import classes from "./nameChanger.module.css";
+import { useDispatch } from "react-redux";
+import {setCartName} from '../../../../store/actions';
 
 const NameChanger = ({ handleName, setChangeName }) => {
+  const dispatch = useDispatch();
+
   const [name, setName] = useState("");
   const submitForm = (e) => {
     e.preventDefault();
-    handleName(name);
-    setChangeName(false);
+    dispatch(setCartName(name));
+    setName("");
   }
 
   return (

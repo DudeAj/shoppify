@@ -3,50 +3,36 @@ import Topbar from './Topbar/Topbar';
 import classes from './main.module.css';
 import Category from '../Category/Category';
 import { useSelector, useDispatch } from 'react-redux';
-import { useState, useEffect } from 'react';
-import { getCategory, LoadItems, setCart } from '../../store/actions/';
+import { useEffect } from 'react';
+import { getCategory, LoadItems } from '../../store/actions/';
 
-const Main = () => {
+const Main = ({setShowCart}) => {
+    
     const categories = useSelector(state => state.data.Categories);
     const allItems = useSelector(state => state.data.items);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getCategory())
-        dispatch(LoadItems())
+        dispatch(getCategory());
+        dispatch(LoadItems());
     }, []);
 
-
-    let cart = [];
-    const setCartItem = (id, name, data, amount) => {
-        const filtered = cart.filter(item => item.id === data.id).length > 0 ? true : false;
-        if (!filtered) {
-            const faq = { ...data, amount: amount }
-            cart.push(faq)
-        }
-        if (filtered) {
-            const newArr = cart.map(obj => {
-                if (obj.id === data.id) {
-                    return { ...obj, amount: amount };
-                }
-                return obj;
-            });
-
-            cart = newArr;
-        }
-        dispatch(setCart(cart));
-    }
-
+    
+   
     return (
         <div className={classes.main}>
             <Topbar />
             <div className={classes.Elements}>
                 {categories.map(item => {
-                    const itemLen = allItems.filter(it => it.category === item.id).length;
-                    if (itemLen > 0) {
-                        return <Category key={item.id} name={item.title} handleCategory={setCartItem} id={item.id} data={item.Items} />
+                    const itemData = allItems.filter(it => it.category === item.id);
+                    if (itemData.length > 0) {
+                        return <Category 
+                        key={item.id} 
+                        name={item.title} 
+                        id={item.id} 
+                        data={itemData}
+                        setShowCart={setShowCart} />
                     }
-
                 })}
             </div>
         </div>

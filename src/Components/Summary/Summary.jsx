@@ -8,19 +8,23 @@ import Note from "./note/Note";
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import CancelSave from './CancelSave/cancelSave';
 
-const Summary = ({ closeCart }) => {
+const Summary = ({ closeCart,itemInfo }) => {
+  console.log(itemInfo);
   return (
     <div className={classes.Summary}>
-
-      <div className={classes.button} onClick={() => closeCart(false)}><KeyboardBackspaceIcon sx={{ fontSize: 15 }} />
+      <div className={classes.button} onClick={() => closeCart(true)}>
+        <KeyboardBackspaceIcon sx={{ fontSize: 15 }} />
         <p>back</p>
-        {/* <button className={classes.button}> back</button> */}
       </div>
-      <Image />
-      <Name />
-      <Summarycategory />
-      <Note />
+      <div className={classes.Container}>
+      <Image info={itemInfo.data}/>
+      <Name name={itemInfo.data.name}/>
+      <Summarycategory cat={itemInfo.cat}/>
+      <Note note={itemInfo.data.notes}/>
+      <div className={classes.BtnHolder}>
       <CancelSave />
+      </div>
+      </div>
     </div>
   );
 };

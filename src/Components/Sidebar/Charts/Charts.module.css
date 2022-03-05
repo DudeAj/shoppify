@@ -1,0 +1,93 @@
+.container {
+  
+}
+
+.items h1 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 30px;
+  color: #000000;
+}
+.chartContainer {
+  display: flex;
+  padding: 40px 40px;
+  column-gap: 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.barDesc {
+  align-items: flex-end;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.category h1 {
+  font-family: "Quicksand", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 30px;
+  color: #000000;
+}
+.barDesc .barPercent {
+  font-family: Quicksand;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  /* identical to box height */
+
+  text-align: right;
+}
+.barDesc .barTitle {
+  font-family: Quicksand;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+}
+.chartContainer .subitems {
+  margin-top: 50px;
+}
+
+.progressBar {
+  margin-top: 10px;
+}
+.orderSummary {
+  padding: 75%;
+}
+.summaryContainer {
+  margin-top: 40px;
+}
+.summaryContainer h1 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 30px;
+  color: #000000;
+}
+progress {
+  border: 1px solid lightblue;
+  border: 4px;
+  width: 400px;
+  height: 6px;
+}
+
+progress::-moz-progress-bar {
+  background: #e0e0e0;
+}
+
+progress::-webkit-progress-value {
+  background: #f9a109;
+}
+
+progress::-webkit-progress-bar {
+  background: #e0e0e0;
+}
+
+.category progress::-webkit-progress-value {
+  background: #56ccf2;
+}

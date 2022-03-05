@@ -2,13 +2,13 @@ import React from 'react'
 import classes from './summarycategory.module.css';
 
 
-const Summarycategory = () => {
+const Summarycategory = ({cat}) => {
   return (
    <>
     <div className={classes.Summarycategory}>
       <div className={classes.category}>category
       </div>
-      <div className={classes.categoryname}> Fruit and vegetables </div>
+      <div className={classes.categoryname}> {cat} </div>
       </div>
       </>
   )

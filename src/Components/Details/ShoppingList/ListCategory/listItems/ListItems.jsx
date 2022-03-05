@@ -4,11 +4,15 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import { useDispatch } from 'react-redux';
-import { remove, add } from '../../../../../store/actions'
+import { remove, add, deleteCartItem } from '../../../../../store/actions'
 
 const ListItems = ({ data }) => {
 
   const dispatch = useDispatch();
+
+  const deleteItem = () => {
+    dispatch(deleteCartItem(data.id));
+  }
 
   const removeItem = () => {
     dispatch(remove(data.id))
@@ -25,14 +29,14 @@ const ListItems = ({ data }) => {
       <div>
         <div className={classes.btn_container}>
           <div className={classes.delete_btn}>
-            <DeleteOutlineIcon sx={{ color: "#FFF", background: "#F9A10A", fontSize: 18 }} />
+            <DeleteOutlineIcon fontSize="small" sx={{ color: "#FFF", background: "#F9A10A" }} onClick={deleteItem}/>
           </div>
 
-          <RemoveIcon sx={{ color: "#F9A10A", cursor: "pointer" }} onClick={removeItem} />
+          <RemoveIcon fontSize="small" sx={{ color: "#F9A10A", cursor: "pointer" }} onClick={removeItem} />
 
           <button>{data.amount} pcs</button>
 
-          <AddIcon sx={{ color: "#F9A10A", cursor: "pointer" }} onClick={addItem} />
+          <AddIcon fontSize="small" sx={{ color: "#F9A10A", cursor: "pointer" }} onClick={addItem} />
         </div>
       </div>
     </div>

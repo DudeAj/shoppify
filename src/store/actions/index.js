@@ -10,7 +10,9 @@ export {
 export {
     setCart,
     remove,
-    add
+    add,
+    deleteCartItem,
+    setCartName
 } from './Items';
 
 

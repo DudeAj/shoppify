@@ -1,0 +1,27 @@
+.ItemContainer {
+    margin: 2px 5px;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    cursor:pointer;
+}
+
+.ItemBox {
+
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+}
+
+.ItemBox span {
+    padding: 10px 10px;
+    font-size: 12px;
+    font-weight: 500;
+    color: red;
+}
+
+.ItemBox p {
+    padding: 10px;
+    text-transform: capitalize;
+}
+

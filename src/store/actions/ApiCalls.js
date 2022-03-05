@@ -14,7 +14,6 @@ export const getCategory = () => {
                     title: responseData[category].title,
                 });
             }
-            console.log(dataset);
             dispatch(apiCalls.setCategories(dataset));
 
         } catch (err) {
@@ -34,7 +33,8 @@ export const LoadItems = () => {
                     id: item,
                     name: responseData[item].name,
                     icon: responseData[item].icon,
-                    category: responseData[item].categorty
+                    category: responseData[item].categorty,
+                    notes:responseData[item].notes
                 });
             }
 
@@ -75,6 +75,7 @@ export const addItemNew = (id, name, icon, note) => {
                 }
             );
             dispatch(apiCalls.setStatus("Item Added"))
+            dispatch(LoadItems());
             console.log("Item Added", response.data);
         }
         catch (err) {
@@ -84,12 +85,12 @@ export const addItemNew = (id, name, icon, note) => {
 }
 
 
-export const OrderNow = (OrderData) => {
+export const OrderNow = (OrderData, cartName) => {
     return async dispatch => {
         try {
             const response = await axios.post(`Orders.json`,
                 {
-                    title: "ajay's Order",
+                    title: cartName,
                     Items: { ...OrderData },
                     time: new Date()
                 }
