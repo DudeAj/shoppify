@@ -32,6 +32,7 @@ const AddRecipe = () => {
         //event.preventDefault();
         if (type) {
             dispatch(addCategory(newCat, name, img, note))
+            
         } else {
             dispatch(addItemNew(cat, name, img, note))
         }
