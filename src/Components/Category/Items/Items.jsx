@@ -16,16 +16,16 @@ const Items = ({ data, name, id, click,setShowCart }) => {
     }
 
     const cartItems = useSelector(state => state.data.cart);
-    
+
     useEffect(() => {
         setCartInfo(cartItems)
     }, [cartItems])
 
-    const setCartDetails = (data) => {
-        const filtered = cart.filter(item => item.id === data.id).length > 0 ? true : false;
+    const setCartDetails = (itemdata) => {
+        const filtered = cart.filter(item => item.id === itemdata.id).length > 0 ? true : false;
         
         if (!filtered) {
-            const faq = { ...data, amount: 1 }
+            const faq = { ...itemdata, amount: 1 }
             const newCart = [...cart, faq];
             setCartInfo(newCart);
             dispatch(setCart(cart));
@@ -33,7 +33,7 @@ const Items = ({ data, name, id, click,setShowCart }) => {
         }
         if (filtered) {
             const newArr = cart.map(obj => {
-                if (obj.id === data.id) {
+                if (obj.id === itemdata.id) {
                     const objAmount = obj.amount +1;
                     return { ...obj, amount: objAmount};
                 }
@@ -53,7 +53,7 @@ const Items = ({ data, name, id, click,setShowCart }) => {
             <div className={classes.ItemBox}>
 
                 <p onClick={info}>{data.name}</p>
-                <span onClick={setCartDetails}>+</span>
+                <span onClick={() => setCartDetails(data)}>+</span>
             </div>
         </div>
     )

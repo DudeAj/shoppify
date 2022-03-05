@@ -76,6 +76,7 @@ export const addItemNew = (id, name, icon, note) => {
                 }
             );
             dispatch(apiCalls.setStatus("Item Added"))
+            dispatch(LoadItems());
             console.log("Item Added", response.data);
         }
         catch (err) {
