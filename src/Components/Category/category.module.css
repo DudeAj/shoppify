@@ -1,8 +1,16 @@
 .category {
     margin-top: 20px;
     margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.category .title {
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size:20px;
 }
 
 .Items {
     display: flex;
+    flex-wrap: wrap;
 }
