@@ -3,8 +3,8 @@ import './App.css';
 import Details from './Components/Details/Details';
 import ShoppingHistory from './Components/Sidebar/Shopping-History/ShoppingHistory';
 import Sidebar from './Components/Sidebar/Sidebar';
+import Charts from './Components/Sidebar/Charts/Charts';
 import Summary from './Components/Summary/Summary';
-
 import { Switch, Route, } from "react-router-dom";
 import Main from './Components/Main/Main';
 import axios from 'axios';
