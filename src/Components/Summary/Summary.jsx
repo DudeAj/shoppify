@@ -17,7 +17,7 @@ const Summary = ({ closeCart,itemInfo }) => {
         <p>back</p>
       </div>
       <div className={classes.Container}>
-      <Image />
+      <Image info={itemInfo.data}/>
       <Name name={itemInfo.data.name}/>
       <Summarycategory cat={itemInfo.cat}/>
       <Note note={itemInfo.data.notes}/>

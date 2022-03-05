@@ -5,7 +5,7 @@ import NameChanger from './NameChanger/NameChanger';
 import classes from './actionContainer.module.css'
 
 const ActionContainer = ({ showList, changeName }) => {
-  console.log(showList);
+  
   return (
     <div className={classes.actionContainer}>
 
