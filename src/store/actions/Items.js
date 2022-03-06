@@ -57,9 +57,23 @@ export const add = (id) => {
     }
 }
 
+export const deleteCartItem = (id) => {
+    return {
+        type: types.DELETE_ITEM,
+        payload: id
+    }
+}
+
 export const setOrders = (data) => {
     return {
         type: types.SET_ORDER,
         payload: data
+    }
+}
+
+export const setLoading = (value) => {
+    return {
+        type:types.SET_LOADING,
+        payload:value
     }
 }

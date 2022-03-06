@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import classes from './addRecipe.module.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { addItem, addCategory, addItemNew } from '../../store/actions';
+import { addItem, addCategory, addItemNew, setLoading} from '../../store/actions';
 import CancelSave from './cancelSave/cancelSave';
 
 
 const AddRecipe = () => {
 
     const category = useSelector(state => state.data.Categories);
+    const msg = useSelector(state => state.data.status);
 
     const [name, setName] = useState("");
     const [note, setNote] = useState("");
@@ -15,9 +16,9 @@ const AddRecipe = () => {
     const [cat, setCat] = useState("");
     const [type, setType] = useState(false);
     const [newCat, setNewCat] = useState("");
+    const [message, setMessage] = useState(null);
     const dispatch = useDispatch();
-
-
+    
     useEffect(() => {
         if (category.length > 0) {
             setCat(category[0].id);
@@ -25,19 +26,29 @@ const AddRecipe = () => {
     }, [category]);
 
     const submitform = () => {
+
         addNewItem();
     }
 
     const addNewItem = () => {
         //event.preventDefault();
-        if (type) {
-            dispatch(addCategory(newCat, name, img, note))
-            
-        } else {
-            dispatch(addItemNew(cat, name, img, note))
+        if(name === "" || note === "" || img === "" || cat === ""){
+            setMessage("Please Fill All the fields carefully")
+        } 
+        else {
+            if (type) {
+                dispatch(addCategory(newCat, name, img, note))
+                
+            } else {
+                dispatch(addItemNew(cat, name, img, note))
+            }
+            setName("");
+            setNote("");
+            setImg("");
+            setCat("");
         }
-
     }
+
     return (
         <div className={classes.container}>
             <div>
@@ -72,6 +83,8 @@ const AddRecipe = () => {
                                 <button type="button" className={classes.catBtn} onClick={() => setType(!type)}>{type ? "-" : "+"}</button>
                             </div>
                         </div>
+                        
+                        {message && <p><font color="red">{message}</font></p>}
                     </form>
                 </div >
             </div>

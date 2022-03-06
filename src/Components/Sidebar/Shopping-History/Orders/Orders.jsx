@@ -19,8 +19,8 @@ const Main = () => {
         console.log("its loaded")
         const itemLen = orders.filter(it => it.id === param.id);
         setItems(...itemLen);
-        
     }, []);
+    
     console.log(items)
 
     if(items.length === 0){
