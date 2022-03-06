@@ -15,20 +15,20 @@ const ShoppingList = () => {
   const dispatch = useDispatch();
   const orders = useSelector(state => state.data.orders);
 
+
+  
   useEffect(() => {
     if(orders.length === 0){
     dispatch(FetchOrders())
     }
   }, []);
 
-  
+
   
   if(orders.length === 0){
     return <Spinner />
   }
   
-
-
   return (
     <div className={classes.container}>
       <div className={classes.main}>
