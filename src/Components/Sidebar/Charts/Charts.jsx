@@ -7,7 +7,9 @@ const Charts = () => {
 
   const items = useSelector(state => state.data.items)
   const categories = useSelector(state => state.data.Categories);
-  console.log(items);
+      const orders = useSelector(state => state.data.orders);
+
+  console.log(orders);
 
     return (
       <div className={classes.container}>
