@@ -5,7 +5,7 @@ import Category from './Category/Category';
 import { useSelector, useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { getCategory, LoadItems, setCart } from '../../../../store/actions/';
-import {useHistory, useParams} from 'react-router-dom';
+import { useParams} from 'react-router-dom';
 
 const Main = () => {
     const param = useParams();

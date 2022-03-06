@@ -1,29 +1,43 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import classes from "./shoppinghistory.module.css";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import EventNoteIcon from '@mui/icons-material/EventNote';
 import { useDispatch, useSelector } from "react-redux";
 import { FetchOrders } from '../../../store/actions';
-import {useHistory, useParams} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
+import moment from "moment";
 
 const ShoppingList = () => {
-  
+  const [currentYear, setCurrentYear] = useState(new Date().getFullYear()); 
+  const [date, setDate]=useState(new Date());
   const history = useHistory();
-  const date = new Date();
+  // const date = new Date();
 
   const dispatch = useDispatch();
   const orders = useSelector(state => state.data.orders)
+  let longMonth = date.toLocaleString('en-us', { month: 'long' });
+  //console.log(orders)
 
-  useEffect(() => {
-    dispatch(FetchOrders())
-    
-  }, []);
+  // useEffect(() => {
+  //   results()
+  // }, []);
 
+  // const  results=()=>{
+  //   orders.map((order,i)=>{
+  //     if(date === order[i].time){
+  //       console.log("ordersdbntioskvmtw",order[i].time)
+  //     }
+  //   })
+   
+  // }
+  
   return (
+    
     <div className={classes.container}>
+      {/* {results} */}
       <div className={classes.main}>
         <h1 className={classes.heading}>Shopping history</h1>
-        <h3 className={classes.headingTwo}>August 2020</h3>
+        <h3 className={classes.headingTwo}>{longMonth}-{currentYear}</h3>
 
         {orders.map(order => {
           return <div className={classes.mainList} key={order.id} onClick={()=>history.push(`/orders/${order.id}`)}>

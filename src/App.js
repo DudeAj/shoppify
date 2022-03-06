@@ -5,11 +5,13 @@ import Details from './Components/Details/Details';
 import ShoppingHistory from './Components/Sidebar/Shopping-History/ShoppingHistory';
 import Sidebar from './Components/Sidebar/Sidebar';
 import Charts from './Components/Sidebar/Charts/Charts';
+import {useDispatch}from 'react-redux'
+import { FetchOrders } from "./store/actions";
 import Summary from './Components/Summary/Summary';
 import { Switch, Route, } from "react-router-dom";
 import Main from './Components/Main/Main';
 import axios from 'axios';
-import { useState } from 'react';
+import {useEffect, useState } from 'react';
 import Orders from './Components/Sidebar/Shopping-History/Orders/Orders';
 
 
@@ -20,6 +22,7 @@ function App() {
   const [showCart, setShowCart] = useState(true);
   const [showList, setShowList] = useState(true);
   const [summeryData, setSummeryData] = useState({cat:"", data:{}});
+  const dispatch = useDispatch()
   //const [showSummery, setShowList] = useState(true);
 
   const handleCart = () => {
@@ -27,6 +30,10 @@ function App() {
     setShowList(true);
   }
 
+  useEffect(() => {
+    dispatch(FetchOrders())
+    
+  }, []);
   const itemInfo = (name,data) => {
     setSummeryData({cat:name, data:data});
     setShowCart(false);
