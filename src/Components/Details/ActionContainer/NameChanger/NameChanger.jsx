@@ -11,6 +11,7 @@ const NameChanger = ({ handleName, setChangeName }) => {
     e.preventDefault();
     dispatch(setCartName(name));
     setName("");
+    setChangeName(false);
   }
 
   return (

@@ -79,9 +79,11 @@ export const addItemNew = (id, name, icon, note) => {
                     categorty: id
                 }
             );
-            dispatch(apiCalls.setStatus("Item Added"))
+            dispatch(apiCalls.setStatus("Item Added"));
             dispatch(LoadItems());
-            console.log("Item Added", response.data);
+            setTimeout(()=> {
+                dispatch(apiCalls.setStatus(null));
+            },5000);
             
         }
         catch (err) {
@@ -90,7 +92,6 @@ export const addItemNew = (id, name, icon, note) => {
         }
     }
 }
-
 
 export const OrderNow = (OrderData, cartName) => {
     return async dispatch => {
@@ -103,9 +104,14 @@ export const OrderNow = (OrderData, cartName) => {
                     time: new Date()
                 }
             );
-            // dispatch(apiCalls.setStatus("Item Added"))
-            console.log("Ordered", response.data);
+            dispatch(apiCalls.setStatus("Order Placed SuccessFully"));
             dispatch(apiCalls.setLoading(false));
+            dispatch(apiCalls.setCart([]));
+            dispatch(LoadItems());
+            setTimeout(()=> {
+                dispatch(apiCalls.setStatus(null))
+            },5000);
+
         }
         catch (err) {
             dispatch(apiCalls.setError(err.message));
@@ -114,7 +120,7 @@ export const OrderNow = (OrderData, cartName) => {
     }
 }
 
-export const FetchOrders = (OrderData) => {
+export const FetchOrders = () => {
     return async dispatch => {
         dispatch(apiCalls.setLoading(true));
         try {
@@ -172,9 +178,10 @@ export const deleteItem = (itemId) => {
             dispatch(apiCalls.setLoading(true));
             const response = axios.delete(`items/${itemId}.json`)
             dispatch(apiCalls.setStatus("Item Removed"))
-            dispatch(LoadItems());
-            console.log("Item Deleted", response.data);
-            
+            setTimeout(()=> {
+                dispatch(LoadItems());
+            },5000);
+
         }
         catch (err) {
             dispatch(apiCalls.setError(err.message));

@@ -4,22 +4,28 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import EventNoteIcon from '@mui/icons-material/EventNote';
 import { useDispatch, useSelector } from "react-redux";
 import { FetchOrders } from '../../../store/actions';
-import {useHistory, useParams} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
+import Spinner from '../../../Components/Spinner/Spinner';
 
 const ShoppingList = () => {
   
   const history = useHistory();
-  const date = new Date();
+
 
   const dispatch = useDispatch();
   const orders = useSelector(state => state.data.orders);
 
   useEffect(() => {
-    //dispatch(FetchOrders())
-    
+    if(orders.length === 0){
+    dispatch(FetchOrders())
+    }
   }, []);
 
-  console.log(orders[0].title)
+  
+  
+  if(orders.length === 0){
+    return <Spinner />
+  }
   
 
 
