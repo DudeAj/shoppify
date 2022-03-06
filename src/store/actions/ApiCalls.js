@@ -39,8 +39,10 @@ export const LoadItems = () => {
             }
 
             dispatch(apiCalls.setItems(dataset));
+            dispatch(apiCalls.setLoading(false));
         } catch (err) {
             dispatch(apiCalls.setError(err.message));
+            dispatch(apiCalls.setLoading(false));
         }
     }
 }
@@ -63,9 +65,12 @@ export const addCategory = (cat, name, icon, note) => {
 }
 
 export const addItemNew = (id, name, icon, note) => {
-    console.log("its called", id)
+    console.log("its called", id);
+    
     return async dispatch => {
+        dispatch(apiCalls.setLoading(true));
         try {
+            
             const response = await axios.post(`items.json`,
                 {
                     name: name,
@@ -77,9 +82,11 @@ export const addItemNew = (id, name, icon, note) => {
             dispatch(apiCalls.setStatus("Item Added"))
             dispatch(LoadItems());
             console.log("Item Added", response.data);
+            
         }
         catch (err) {
             dispatch(apiCalls.setError(err.message));
+            dispatch(apiCalls.setLoading(false));
         }
     }
 }
@@ -88,6 +95,7 @@ export const addItemNew = (id, name, icon, note) => {
 export const OrderNow = (OrderData, cartName) => {
     return async dispatch => {
         try {
+            dispatch(apiCalls.setLoading(true));
             const response = await axios.post(`Orders.json`,
                 {
                     title: cartName,
@@ -97,15 +105,18 @@ export const OrderNow = (OrderData, cartName) => {
             );
             // dispatch(apiCalls.setStatus("Item Added"))
             console.log("Ordered", response.data);
+            dispatch(apiCalls.setLoading(false));
         }
         catch (err) {
             dispatch(apiCalls.setError(err.message));
+            dispatch(apiCalls.setLoading(false));
         }
     }
 }
 
 export const FetchOrders = (OrderData) => {
     return async dispatch => {
+        dispatch(apiCalls.setLoading(true));
         try {
             const response = await axios.get(`Orders.json`);
             // console.log(response.data);
@@ -122,13 +133,54 @@ export const FetchOrders = (OrderData) => {
                 });
             }
             dispatch(apiCalls.setOrders(dataset))
-            console.log(dataset);
+            dispatch(apiCalls.setLoading(false));
+            
         }
         catch (err) {
             dispatch(apiCalls.setError(err.message));
+            dispatch(apiCalls.setLoading(false));
         }
     }
 }
 
+export const setCartItems = (cartItems, itemdata) => {
+    return async (dispatch) => {
+        const filtered = cartItems.filter(item => item.id === itemdata.id).length > 0 ? true : false;
+       
+        if (!filtered) {
+            const faq = { ...itemdata, amount: 1 }
+            const newCart = [...cartItems, faq];
+            dispatch(apiCalls.setCart(newCart));
+        }
+        else {
+            const newArr = cartItems.map(obj => {
+                if (obj.id === itemdata.id) {
+                    const objAmount = obj.amount +1;
+                    return { ...obj, amount: objAmount};
+                }
+                return obj;
+            });
+            dispatch(apiCalls.setCart(newArr));
+            
+        }
+    }
+}
+
+export const deleteItem = (itemId) => {
+    return async (dispatch) => {
+        try {
+            dispatch(apiCalls.setLoading(true));
+            const response = axios.delete(`items/${itemId}.json`)
+            dispatch(apiCalls.setStatus("Item Removed"))
+            dispatch(LoadItems());
+            console.log("Item Deleted", response.data);
+            
+        }
+        catch (err) {
+            dispatch(apiCalls.setError(err.message));
+            dispatch(apiCalls.setLoading(false));
+        }
+    }
+}
 
 

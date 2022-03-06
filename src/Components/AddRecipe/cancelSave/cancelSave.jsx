@@ -5,8 +5,8 @@ const CancelSave = ({ click }) => {
   return (
 
     <div className={classes.cancelSave}>
-      <button className={classes.cancel}>Discart</button>
-      <button className={classes.save} type="submit" onClick={click}>Add</button>
+      <button className={classes.cancel}>cancel</button>
+      <button className={classes.save} type="submit" onClick={click}>Save</button>
     </div>
   )
 }
