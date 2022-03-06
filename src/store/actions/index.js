@@ -4,7 +4,9 @@ export {
     addItemNew,
     LoadItems,
     OrderNow,
-    FetchOrders
+    FetchOrders,
+    setCartItems,
+    deleteItem
 } from './ApiCalls';
 
 export {
@@ -12,7 +14,8 @@ export {
     remove,
     add,
     deleteCartItem,
-    setCartName
+    setCartName,
+    setStatus
 } from './Items';
 
 

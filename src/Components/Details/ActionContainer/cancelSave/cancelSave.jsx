@@ -1,23 +1,34 @@
-import React from 'react'
+import React, {useState} from 'react'
 import classes from './cancelSave.module.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { OrderNow } from '../../../../store/actions'
+import { OrderNow, setCart } from '../../../../store/actions';
+import PopUp from '../../PopUp/PopUp';
 
 const CancelSave = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector(state => state.data.cart);
   const cartName = useSelector(state=> state.data.cartName);
 
+  const [show,setShow] = useState(false);
+
   const order = () => {
+    
     console.log("nothing can be do")
-    dispatch(OrderNow(cartItems, cartName))
+    dispatch(OrderNow(cartItems, cartName));
   }
 
+  const clearCart = () => {
+    dispatch(setCart([]));
+    setShow(false)
+  }
   return (
 
     <div className={classes.cancelSave}>
-      <button className={classes.cancel}>Discart</button>
-      <button className={classes.save} type="submit" onClick={order}> Order Now</button>
+      {show && <PopUp confirm={clearCart} cancel={()=>setShow(false)}/>}
+
+      <button className={classes.cancel} onClick={()=>setShow(true)}>Discart</button>
+
+      <button className={classes.save} type="submit" disabled={!(cartItems.length > 0)} onClick={order}> Order Now</button>
     </div >
   )
 }
