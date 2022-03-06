@@ -1,38 +1,34 @@
 .sidebar {
-    background: #FFFFFF;
-    width: 6%;
-    position: fixed;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  background: #ffffff;
+  width: 6%;
+  /* position: fixed; */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-.icons{
-    display: flex;
-    flex-direction: column;
-    margin: 150px  30px 1rem  -15px ; 
-    justify-content: space-between;
+.icons {
+  display: flex;
+  flex-direction: column;
+  margin: 150px 30px 1rem -15px;
+  justify-content: space-between;
 }
 
-img{
-    margin: 1rem;
-
+img {
+  margin: 1rem;
 }
-.icons ul li{
-    margin-top: 25px;
-    list-style: none;
-    
-
+.icons ul li {
+  margin-top: 25px;
+  list-style: none;
 }
-.icons ul li a{
-    text-decoration: none;
-    color: black;
+.icons ul li a {
+  text-decoration: none;
+  color: black;
 }
-.cart{
-    margin: 180px 30px 0px 22px;
-    background-color:#F9A109;
-    width:40px;
-    border-radius: 15px;
-    margin-bottom: 20px;
-
+.cart {
+  margin: 180px 30px 0px 22px;
+  background-color: #f9a109;
+  width: 40px;
+  border-radius: 15px;
+  margin-bottom: 20px;
 }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import ListCategory from './ListCategory/ListCategory'
 import classes from './ShoppingList.module.css';
-import CreateIcon from '@mui/icons-material/Create';
+import {Create, Clear } from '@mui/icons-material';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react'
 
@@ -13,7 +13,6 @@ const ShoppingList = ({ change, changeName }) => {
 
   useEffect(() => {
     setCart(category);
-    console.log("its refreshed")
   }, [category])
 
   return (
@@ -22,7 +21,10 @@ const ShoppingList = ({ change, changeName }) => {
       <div className={classes.list_container}>
         <div className={classes.list_header}>
           <p>{cartName}</p>
-          <CreateIcon sx={{ cursor: 'pointer' }} onClick={() => change(!changeName)} />
+         { !changeName 
+        ? <Create sx={{ cursor: 'pointer' }} onClick={() => change(!changeName)} /> 
+        : <Clear sx={{ cursor: 'pointer' }} onClick={() => change(!changeName)} />
+        }
         </div>
         {cart.map(item => {
           const itemdata = cartItems.filter(it => it.category === item.id);

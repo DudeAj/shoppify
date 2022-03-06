@@ -11,7 +11,7 @@
 }
 .chartContainer {
   display: flex;
-  /* padding: 40px 40px; */
+  padding: 40px 40px;
   column-gap: 60px;
   display: grid;
   grid-template-columns: 1fr 1fr;

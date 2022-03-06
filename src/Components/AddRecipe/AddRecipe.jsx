@@ -8,6 +8,7 @@ import CancelSave from './cancelSave/cancelSave';
 const AddRecipe = () => {
 
     const category = useSelector(state => state.data.Categories);
+    const msg = useSelector(state => state.data.status);
 
     const [name, setName] = useState("");
     const [note, setNote] = useState("");
@@ -36,8 +37,12 @@ const AddRecipe = () => {
         } else {
             dispatch(addItemNew(cat, name, img, note))
         }
-
+        setName("");
+        setNote("");
+        setImg("");
+        setCat("");
     }
+
     return (
         <div className={classes.container}>
             <div>
@@ -72,6 +77,7 @@ const AddRecipe = () => {
                                 <button type="button" className={classes.catBtn} onClick={() => setType(!type)}>{type ? "-" : "+"}</button>
                             </div>
                         </div>
+                        <p>{msg}</p>
                     </form>
                 </div >
             </div>

@@ -13,6 +13,7 @@ const ShoppingList = () => {
 
   const dispatch = useDispatch();
   const orders = useSelector(state => state.data.orders)
+  console.log(orders)
 
   useEffect(() => {
     dispatch(FetchOrders())

@@ -1,7 +1,14 @@
 import React from 'react';
 import classes from './Charts.module.css';
+import { useDispatch, useSelector } from "react-redux";
 
 const Charts = () => {
+
+
+  const items = useSelector(state => state.data.items)
+  const categories = useSelector(state => state.data.Categories);
+  console.log(items);
+
     return (
       <div className={classes.container}>
         <div className={classes.chartContainer}>

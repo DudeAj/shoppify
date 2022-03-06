@@ -67,11 +67,20 @@ const reducer = (state = initialState, action) => {
         case types.ADD_ITEM:
             let additems = state.cart;
             const updatedItemsnew = additems.map(item => item.id === action.payload ? { ...item, amount: item.amount + 1 } : item);
-
             return {
                 ...state,
                 cart: updatedItemsnew
             }
+
+        case types.DELETE_ITEM:
+            let deleteitems = state.cart;
+            const updatedItemsdelete = deleteitems.filter(item => item.id !== action.payload);
+            console.log(updatedItemsdelete)
+            return {
+                ...state,
+                cart: updatedItemsdelete
+            }
+
         default:
             return state;
     }

@@ -11,6 +11,7 @@ export {
     setCart,
     remove,
     add,
+    deleteCartItem,
     setCartName
 } from './Items';
 
