@@ -4,10 +4,14 @@ import Banner from './Banner/Banner';
 import ShoppingList from './ShoppingList/ShoppingList';
 import ActionContainer from './ActionContainer/ActionContainer.jsx'
 import AddRecipe from '../AddRecipe/AddRecipe';
+import StatusMsg from '../StatusMsg/Status';
+import { useSelector } from 'react-redux';
 
 
 const Details = ({showList, setShowList}) => {
     //const [showList, setShowList] = useState(true);
+
+    const msg = useSelector(state=>state.data.status);
     
     const [changeName, setChangeName] = useState(false);
     return (
@@ -17,6 +21,7 @@ const Details = ({showList, setShowList}) => {
                     {showList
                         ? <>
                             <Banner list={showList} click={setShowList} />
+                            {msg && <StatusMsg msg={msg} type='success'/>}
                             <ShoppingList changeName={changeName} change={setChangeName} />
                         </>
                         : <AddRecipe showList />}
@@ -27,4 +32,4 @@ const Details = ({showList, setShowList}) => {
     )
 }
 
-export default Details
+export default Details;

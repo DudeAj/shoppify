@@ -5,9 +5,9 @@
 
 .Image img{
     width: 300.43px;
-height: 219.69px;
-/* background-color: rgb(165, 153, 153); */
-margin-top: 34.06px;
-border-radius: 25px;
+    height: 219.69px;
+    object-fit: cover;
+    margin-top: 34.06px;
+    border-radius: 25px;
 
 }
