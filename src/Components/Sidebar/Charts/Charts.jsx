@@ -13,6 +13,7 @@ const Charts = () => {
   console.log("orders",orders)
    console.log("items",items)
 
+let b =[{}];
 
     return (
       <div className={classes.container}>
@@ -22,7 +23,9 @@ const Charts = () => {
             
             {
               orders.map(order => {
-                return <div> {order.id}</div>
+                const item = { order }
+                
+          
               })
             }
               <div className={classes.subitems}>
@@ -57,15 +60,16 @@ const Charts = () => {
           <div className={classes.category}>
             <h1>Top Categories</h1>
             
-            {
-              items.map(item => {
-                         
-                const arr = item.category
-             
-                const map = items.map.reduce((acc, e) => acc.set(e, (acc.get(e) || 0) + 1), new Map());
-                return <div>{map}</div>
-          })
-            }
+            {/* {
+             items.reduce(function (occ, item) {
+                occ[item.category] = (occ[item.category] || 0) + 1;
+                return occ;
+              }, {})
+              
+            } */}
+     
+      
+        
               <div className={classes.subitems}>
 
               <div className={classes.barDesc}>

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import classes from './addRecipe.module.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { addItem, addCategory, addItemNew, setLoading} from '../../store/actions';
+import { addCategory, addItemNew, setLoading} from '../../store/actions';
 import CancelSave from './cancelSave/cancelSave';
+import Status from '../StatusMsg/Status';
 
 
 const AddRecipe = () => {
@@ -22,6 +23,7 @@ const AddRecipe = () => {
     useEffect(() => {
         if (category.length > 0) {
             setCat(category[0].id);
+            setMessage(msg);
         }
     }, [category]);
 
@@ -34,7 +36,7 @@ const AddRecipe = () => {
         //event.preventDefault();
         if(name === "" || note === "" || img === "" || cat === ""){
             setMessage("Please Fill All the fields carefully")
-        } 
+        }
         else {
             if (type) {
                 dispatch(addCategory(newCat, name, img, note))
@@ -47,6 +49,10 @@ const AddRecipe = () => {
             setImg("");
             setCat("");
         }
+
+        setTimeout(()=> {
+            setMessage(null);
+        },3000);
     }
 
     return (
@@ -83,8 +89,8 @@ const AddRecipe = () => {
                                 <button type="button" className={classes.catBtn} onClick={() => setType(!type)}>{type ? "-" : "+"}</button>
                             </div>
                         </div>
-                        
-                        {message && <p><font color="red">{message}</font></p>}
+                        {message && <Status msg={message} type="error"/>}
+                        {msg && <Status msg={msg} type="success"/>}
                     </form>
                 </div >
             </div>
