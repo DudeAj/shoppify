@@ -9,3 +9,4 @@ export const ADD_ITEM = "ADD_ITEM";
 export const SET_ORDER = "SET_ORDER";
 export const SET_CART_NAME = "SET_CART_NAME";
 export const DELETE_ITEM = "DELETE_ITEM";
+export const SET_LOADING = "SET_LOADING";

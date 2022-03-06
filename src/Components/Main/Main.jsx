@@ -5,6 +5,7 @@ import Category from '../Category/Category';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { getCategory, LoadItems } from '../../store/actions/';
+import PopUp from '../Details/PopUp/PopUp';
 
 const Main = ({setShowCart}) => {
     
@@ -12,15 +13,15 @@ const Main = ({setShowCart}) => {
     const allItems = useSelector(state => state.data.items);
     const dispatch = useDispatch();
 
+
     useEffect(() => {
         dispatch(getCategory());
         dispatch(LoadItems());
     }, []);
 
-    
-   
     return (
         <div className={classes.main}>
+            {/* <PopUp/> */}
             <Topbar />
             <div className={classes.Elements}>
                 {categories.map(item => {

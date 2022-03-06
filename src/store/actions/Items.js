@@ -15,7 +15,6 @@ export const setItems = (data) => {
 }
 
 export const setCart = (data) => {
-    console.log(data);
     return {
         type: types.SET_CART,
         payload: data
@@ -69,5 +68,12 @@ export const setOrders = (data) => {
     return {
         type: types.SET_ORDER,
         payload: data
+    }
+}
+
+export const setLoading = (value) => {
+    return {
+        type:types.SET_LOADING,
+        payload:value
     }
 }

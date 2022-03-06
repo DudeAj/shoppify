@@ -1,4 +1,4 @@
-import { OtherHousesTwoTone } from '@mui/icons-material';
+
 import * as types from '../actions/actionTypes';
 
 const initialState = {
@@ -7,6 +7,7 @@ const initialState = {
     cart: [],
     cartName:'My List',
     orders: [],
+    loading:false,
     error: null,
     status: null
 }
@@ -81,6 +82,11 @@ const reducer = (state = initialState, action) => {
                 cart: updatedItemsdelete
             }
 
+        case types.SET_LOADING:
+            return {
+                ...state,
+                loading:action.payload
+            }
         default:
             return state;
     }

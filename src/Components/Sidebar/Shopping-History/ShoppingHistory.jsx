@@ -16,16 +16,19 @@ const ShoppingList = () => {
   console.log(orders)
 
   useEffect(() => {
-    dispatch(FetchOrders())
+    //dispatch(FetchOrders())
     
   }, []);
+
+  console.log(orders[0].title)
+  
+
 
   return (
     <div className={classes.container}>
       <div className={classes.main}>
         <h1 className={classes.heading}>Shopping history</h1>
         <h3 className={classes.headingTwo}>August 2020</h3>
-
         {orders.map(order => {
           return <div className={classes.mainList} key={order.id} onClick={()=>history.push(`/orders/${order.id}`)}>
           <div className={classes.listHeading}>

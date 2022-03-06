@@ -9,13 +9,22 @@ const Charts = () => {
   const categories = useSelector(state => state.data.Categories);
       const orders = useSelector(state => state.data.orders);
 
-  console.log(orders);
+  console.log("categories",categories);
+  console.log("orders",orders)
+   console.log("items",items)
+
 
     return (
       <div className={classes.container}>
         <div className={classes.chartContainer}>
           <div className={classes.items}>
-               <h1>Top items</h1>
+            <h1>Top items</h1>
+            
+            {
+              orders.map(order => {
+                return <div> {order.id}</div>
+              })
+            }
               <div className={classes.subitems}>
                 <div className={classes.barDesc}>
                   <p className={classes.barTitle}>Grapes</p>
@@ -46,7 +55,17 @@ const Charts = () => {
           </div>
           
           <div className={classes.category}>
-              <h1>Top Categories</h1>
+            <h1>Top Categories</h1>
+            
+            {
+              items.map(item => {
+                         
+                const arr = item.category
+             
+                const map = items.map.reduce((acc, e) => acc.set(e, (acc.get(e) || 0) + 1), new Map());
+                return <div>{map}</div>
+          })
+            }
               <div className={classes.subitems}>
 
               <div className={classes.barDesc}>
