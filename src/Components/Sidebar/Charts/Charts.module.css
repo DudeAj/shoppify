@@ -1,5 +1,5 @@
 .container {
-  width: 90%;
+
 }
 
 .items h1 {
@@ -13,8 +13,7 @@
     column-gap: 25px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    width: 95%;
-    margin-left: 4%;
+    margin:30px;
 }
 .barDesc {
   align-items: flex-end;

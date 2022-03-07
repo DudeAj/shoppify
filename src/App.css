@@ -5,9 +5,10 @@
 }
 
 .PageHolder {
-  padding:2% 0% 0% 9%;
+  margin-left: 6%;
+  padding:40px 50px;
   width:69%;
-  /* box-sizing: border-box; */
+  box-sizing: border-box;
 }
 
 
