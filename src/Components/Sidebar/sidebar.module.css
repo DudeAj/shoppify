@@ -1,25 +1,23 @@
 .sidebar {
   background: #ffffff;
   width: 6%;
-  /* position: fixed; */
+  position: fixed;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
-.icons {
-  display: flex;
-  flex-direction: column;
-  margin: 150px 30px 1rem -15px;
-  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0px 10px 0px;
 }
 
-img {
-  margin: 1rem;
+.img {
+  /* margin: 1rem; */
+  width: 45px;
 }
 .icons ul li {
   margin-top: 25px;
   list-style: none;
+  padding-right: 40px;
 }
 .icons ul li a {
   text-decoration: none;
@@ -31,4 +29,29 @@ img {
   width: 40px;
   border-radius: 15px;
   margin-bottom: 20px;
+}
+.cart {
+  position: relative;
+  background-color: #f9a109;
+  width: 50px;
+  border-radius: 25px;
+  margin-bottom: 40px;
+  color: #ffffff;
+  height: 50px;
+}
+.box {
+  width: 30px;
+  /* text-align: center; */
+  height: 30px;
+  border-radius: 50%;
+  position: absolute;
+  background: #eb5757;
+  left: 50%;
+  top: -20%;
+  display: flex;
+  justify-content: center;
+}
+.itemNum {
+  position: absolute;
+  top: 12%;
 }
