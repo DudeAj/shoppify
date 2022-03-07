@@ -22,8 +22,8 @@ const Sidebar = ({ openCart }) => {
             </div>
             
             <div className={classes.cart} onClick={openCart}>
-            <span className={classes.box}>{cartItems.length}</span>
-                <ShoppingCartIcon style={{ width: '30px', margin: '12px 0px 0px 8px' }} />
+            <div className={classes.box}><span className={classes.itemNum}>{cartItems.length}</span></div>
+                <ShoppingCartIcon style={{ width: '30px', position:'absolute', top:'28%', left:'20%' }} />
             </div>
 
         </div>

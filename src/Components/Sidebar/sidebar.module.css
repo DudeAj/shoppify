@@ -30,7 +30,7 @@ img{
     color: black;
 }
 .cart{
-    
+    position: relative;
     background-color:#F9A109;
     width: 50px;
     border-radius: 25px;
@@ -39,8 +39,19 @@ img{
     height: 50px;
 }
 .box{
+    width: 30px;
+    /* text-align: center; */
+    height: 30px;
+    border-radius: 50%;
+    position: absolute;
     background: #EB5757;
-    border-radius: 4px;
-   padding: 7px 9px 4px 8px ;
-   margin: 2px 0px 20px 25px;
+    left: 50%;
+    top: -20%;
+    display: flex;
+    justify-content: center
+   
+}
+.itemNum{
+    position: absolute;
+    top: 12%;
 }

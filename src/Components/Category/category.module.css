@@ -5,9 +5,19 @@
 }
 
 .category .title {
-    margin-bottom: 10px;
+    /* margin-bottom: 10px;
     font-weight: 600;
-    font-size:20px;
+    font-size:20px; */
+    /* font-family: Quicksand; */
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    color: #000000;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    
 }
 
 .Items {

@@ -14,25 +14,6 @@ const ShoppingList = () => {
   // const date = new Date();
 
   const dispatch = useDispatch();
-<<<<<<< HEAD
-  const orders = useSelector(state => state.data.orders)
-  let longMonth = date.toLocaleString('en-us', { month: 'long' });
-  //console.log(orders)
-
-  // useEffect(() => {
-  //   results()
-  // }, []);
-
-  // const  results=()=>{
-  //   orders.map((order,i)=>{
-  //     if(date === order[i].time){
-  //       console.log("ordersdbntioskvmtw",order[i].time)
-  //     }
-  //   })
-   
-  // }
-  
-=======
   const orders = useSelector(state => state.data.orders);
 
   useEffect(() => {
@@ -44,19 +25,13 @@ const ShoppingList = () => {
   
 
 
->>>>>>> main
   return (
     
     <div className={classes.container}>
       {/* {results} */}
       <div className={classes.main}>
         <h1 className={classes.heading}>Shopping history</h1>
-<<<<<<< HEAD
-        <h3 className={classes.headingTwo}>{longMonth}-{currentYear}</h3>
-
-=======
         <h3 className={classes.headingTwo}>August 2020</h3>
->>>>>>> main
         {orders.map(order => {
           return <div className={classes.mainList} key={order.id} onClick={()=>history.push(`/orders/${order.id}`)}>
           <div className={classes.listHeading}>
