@@ -3,3 +3,25 @@
 .Elements {
     margin-top: 10px;
 }
+
+.back {
+    text-decoration: none;
+    color: skyblue;
+    display:flex;
+    font-size: 15px;
+    align-items:center;
+    margin-bottom: 10px;
+    
+}
+
+.back:hover {
+    text-transform: underline;
+    text-decoration: underline;
+}
+
+.date {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    margin-top: 10px;
+}
