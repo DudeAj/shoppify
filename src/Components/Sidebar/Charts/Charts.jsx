@@ -1,52 +1,17 @@
 import React, { useEffect,useState } from 'react';
 import classes from './Charts.module.css';
-<<<<<<< HEAD
-import { useDispatch, useSelector } from "react-redux";
-
-const Charts = () => {
-
-
-  const items = useSelector(state => state.data.items)
-  const categories = useSelector(state => state.data.Categories);
-      const orders = useSelector(state => state.data.orders);
-
-  console.log("categories",categories);
-  console.log("orders",orders)
-   console.log("items",items)
-
-let b =[{}];
-
-    return (
-      <div className={classes.container}>
-        <div className={classes.chartContainer}>
-          <div className={classes.items}>
-            <h1>Top items</h1>
-            
-            {
-              orders.map(order => {
-                const item = { order }
-                
-          
-              })
-            }
-              <div className={classes.subitems}>
-                <div className={classes.barDesc}>
-                  <p className={classes.barTitle}>Grapes</p>
-                  <p className={classes.barPercent}>12%</p>
-              </div> 
-               <div className={classes.progressBar}>
-                 <progress className={classes.progressBar} value="12" max="100"> 32% </progress>
-                </div>
-=======
 import { useSelector } from 'react-redux';
 //import ProgressBar from 'react-bootstrap/ProgressBar';
 // import  './Charts.css';
 
 const Charts = () => {
   const orders = useSelector(state => state.data.orders);
+    const items = useSelector(state => state.data.items);
+
 
   const [ItemCount,setItemCount] = useState(0);
-  const [item,setItems] = useState({})
+  const [item, setItems] = useState({})
+  const [sorted,setSorted]=useState([])
 
   useEffect(() => {
     //console.log(orders)
@@ -68,12 +33,27 @@ const Charts = () => {
     }, {});
 
     const sumValues = Object.values(data).reduce((a, b) => a + b);
+    const totalSum = Object.values(data);
+
+
+     const  max = Object.keys(data).sort(function(a, b) {
+        return data[b] - data[a];
+     });
     
+    const listItem = max.slice(0, 3)
+    
+    // let sum = data.reduce(function (previousValue, currentValue) {
+    // return previousValue + currentValue;
+    //      });
+
+//console.log("sum",sum);
+    
+    setSorted(listItem)
     setItemCount(sumValues);
     setItems(data);
     
   }
-
+ //console.log(sorted)
   console.log(ItemCount)
   console.log(item)
 
@@ -82,52 +62,41 @@ const Charts = () => {
       <div className={classes.chartContainer}>
         <div className={classes.items}>
           <h1>Top items</h1>
+          
           <div className={classes.subitems}>
+            {
+              sorted.map(ele =>
+              
+              <>
             <div className={classes.barDesc}>
-              <p className={classes.barTitle}>Grapes</p>
-              <p className={classes.barPercent}>12%</p>
+                    <p className={classes.barTitle}>{ele}</p>
+                    
+                    <p className={classes.barPercent}>{item.ele}</p>
             </div>
             <div className={classes.progressBar}>
               <progress className={classes.progressBar} value="12" max="100"> 32% </progress>
->>>>>>> main
-            </div>
+                </div>
+                </>
+           ) }
           </div>
-<<<<<<< HEAD
-          
-          <div className={classes.category}>
-            <h1>Top Categories</h1>
-            
-            {/* {
-             items.reduce(function (occ, item) {
-                occ[item.category] = (occ[item.category] || 0) + 1;
-                return occ;
-              }, {})
-              
-            } */}
-     
-      
-        
-              <div className={classes.subitems}>
-=======
->>>>>>> main
 
-          <div className={classes.barDesc}>
+          {/* <div className={classes.barDesc}>
             <p className={classes.barTitle}>Rice</p>
             <p className={classes.barPercent}>10%</p>
           </div>
           <div className={classes.progressBar}>
             <progress className={classes.progressBar} value="10" max="100"> 32% </progress>
 
-          </div>
+          </div> */}
 
-          <div className={classes.barDesc}>
+          {/* <div className={classes.barDesc}>
             <p className={classes.barTitle}>Chicken 1kg</p>
             <p className={classes.barPercent}>8%</p>
           </div>
           <div className={classes.progressBar}>
             <progress className={classes.progressBar} value="8" max="100"> 32% </progress>
 
-          </div>
+          </div> */}
         </div>
 
         <div className={classes.category}>
