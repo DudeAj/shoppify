@@ -34,7 +34,7 @@ export const LoadItems = () => {
                     name: responseData[item].name,
                     icon: responseData[item].icon,
                     category: responseData[item].categorty,
-                    notes:responseData[item].notes
+                    notes: responseData[item].notes
                 });
             }
 
@@ -56,6 +56,7 @@ export const addCategory = (cat, name, icon, note) => {
             );
 
             dispatch(addItemNew(response.data.name, name, icon, note))
+            dispatch(getCategory())
             console.log(response.data);
 
         } catch (err) {
@@ -66,11 +67,11 @@ export const addCategory = (cat, name, icon, note) => {
 
 export const addItemNew = (id, name, icon, note) => {
     console.log("its called", id);
-    
+
     return async dispatch => {
         dispatch(apiCalls.setLoading(true));
         try {
-            
+
             const response = await axios.post(`items.json`,
                 {
                     name: name,
@@ -81,10 +82,10 @@ export const addItemNew = (id, name, icon, note) => {
             );
             dispatch(apiCalls.setStatus("Item Added"));
             dispatch(LoadItems());
-            setTimeout(()=> {
+            setTimeout(() => {
                 dispatch(apiCalls.setStatus(null));
-            },5000);
-            
+            }, 5000);
+
         }
         catch (err) {
             dispatch(apiCalls.setError(err.message));
@@ -93,7 +94,7 @@ export const addItemNew = (id, name, icon, note) => {
     }
 }
 
-export const OrderNow = (OrderData, cartName) => {
+export const OrderNow = (OrderData, cartName, status) => {
     return async dispatch => {
         try {
             dispatch(apiCalls.setLoading(true));
@@ -101,16 +102,17 @@ export const OrderNow = (OrderData, cartName) => {
                 {
                     title: cartName,
                     Items: { ...OrderData },
-                    time: new Date()
+                    time: new Date(),
+                    status: status
                 }
             );
             dispatch(apiCalls.setStatus("Order Placed SuccessFully"));
             dispatch(apiCalls.setLoading(false));
             dispatch(apiCalls.setCart([]));
             dispatch(LoadItems());
-            setTimeout(()=> {
+            setTimeout(() => {
                 dispatch(apiCalls.setStatus(null))
-            },5000);
+            }, 5000);
 
         }
         catch (err) {
@@ -135,12 +137,13 @@ export const FetchOrders = () => {
                     id: item,
                     info: responseData[item].Items,
                     time: responseData[item].time,
-                    title: responseData[item].title
+                    title: responseData[item].title,
+                    status: responseData[item].status
                 });
             }
             dispatch(apiCalls.setOrders(dataset))
             dispatch(apiCalls.setLoading(false));
-            
+
         }
         catch (err) {
             dispatch(apiCalls.setError(err.message));
@@ -152,7 +155,7 @@ export const FetchOrders = () => {
 export const setCartItems = (cartItems, itemdata) => {
     return async (dispatch) => {
         const filtered = cartItems.filter(item => item.id === itemdata.id).length > 0 ? true : false;
-       
+
         if (!filtered) {
             const faq = { ...itemdata, amount: 1 }
             const newCart = [...cartItems, faq];
@@ -161,13 +164,13 @@ export const setCartItems = (cartItems, itemdata) => {
         else {
             const newArr = cartItems.map(obj => {
                 if (obj.id === itemdata.id) {
-                    const objAmount = obj.amount +1;
-                    return { ...obj, amount: objAmount};
+                    const objAmount = obj.amount + 1;
+                    return { ...obj, amount: objAmount };
                 }
                 return obj;
             });
             dispatch(apiCalls.setCart(newArr));
-            
+
         }
     }
 }
@@ -178,9 +181,10 @@ export const deleteItem = (itemId) => {
             dispatch(apiCalls.setLoading(true));
             const response = axios.delete(`items/${itemId}.json`)
             dispatch(apiCalls.setStatus("Item Removed"))
-            setTimeout(()=> {
+            setTimeout(() => {
                 dispatch(LoadItems());
-            },5000);
+                dispatch(apiCalls.setStatus(null))
+            }, 2000);
 
         }
         catch (err) {

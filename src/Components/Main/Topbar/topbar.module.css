@@ -34,11 +34,6 @@
     line-height: 32px;
     width: 450.29px;
     height: 66px;
-   
-   
-    
-    
-
 
 }
 
@@ -71,9 +66,8 @@
     border-radius: 12px;
     background-color: white;
     box-shadow: 2px;
-    /* box-shadow: 2px 4px 3px #888888; */
     box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.04);
     position: relative;
-    left: -90px;
+    
     
 }
