@@ -71,7 +71,7 @@ const Charts = () => {
             <div className={classes.barDesc}>
                     <p className={classes.barTitle}>{ele}</p>
                     
-                    <p className={classes.barPercent}>{item.ele}</p>
+                    <p className={classes.barPercent}>12%</p>
             </div>
             <div className={classes.progressBar}>
               <progress className={classes.progressBar} value="12" max="100"> 32% </progress>
