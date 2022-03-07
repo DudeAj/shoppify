@@ -25,13 +25,13 @@
     font-size: 24px;
     font-weight: 500;
     line-height: 30px;
-    margin: 25px 50px;
+    margin: 35px 50px;
 }
 
 .btn {
     display: flex;
     justify-content: flex-end;
-    margin: 0 20px 30px 0;
+    margin: 3px 20px 0 0;
 }
 
 .cancel {
@@ -53,5 +53,5 @@
     outline: none;
     line-height: 20px;
     font-size: 16px;
-    margin: 0 4px;
+    margin: 0 8px;
 }
