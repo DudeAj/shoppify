@@ -13,6 +13,7 @@ const ShoppingList = () => {
   const dispatch = useDispatch();
   const arrayOfMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   const orders = useSelector(state => state.data.orders);
+  console.log(orders, "ordersrs")
 
   useEffect(() => {
     if (orders.length === 0) {
