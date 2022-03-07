@@ -6,25 +6,32 @@ import { useDispatch, useSelector } from "react-redux";
 import { FetchOrders } from '../../../store/actions';
 import {useHistory} from 'react-router-dom';
 import moment from "moment";
+import Spinner from '../../../Components/Spinner/Spinner';
 
 const ShoppingList = () => {
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear()); 
   const [date, setDate]=useState(new Date());
   const history = useHistory();
-  // const date = new Date();
+
+
 
   const dispatch = useDispatch();
   const orders = useSelector(state => state.data.orders);
 
+
+  
   useEffect(() => {
-    //dispatch(FetchOrders())
-    
+    if(orders.length === 0){
+    dispatch(FetchOrders())
+    }
   }, []);
 
-  console.log(orders[0].title)
+
   
-
-
+  if(orders.length === 0){
+    return <Spinner />
+  }
+  
   return (
     
     <div className={classes.container}>
