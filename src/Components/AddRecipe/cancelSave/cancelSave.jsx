@@ -11,4 +11,4 @@ const CancelSave = ({ click, setShowList }) => {
   )
 }
 
-export default CancelSave
+export default CancelSave;
