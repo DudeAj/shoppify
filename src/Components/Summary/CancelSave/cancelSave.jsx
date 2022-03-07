@@ -1,18 +1,20 @@
 import React from 'react'
 import classes from './cancelSave.module.css';
-import { setCartItems,deleteItem } from '../../../store/actions';
-import {useDispatch, useSelector} from 'react-redux';
+import { setCartItems, deleteItem } from '../../../store/actions';
+import { useDispatch, useSelector } from 'react-redux';
 
-const CancelSave = ({info}) => {
+const CancelSave = ({ info, closeCart }) => {
   const dispatch = useDispatch();
   const cartItems = useSelector(state => state.data.cart);
 
   const clicked = () => {
-    dispatch(setCartItems(cartItems,info));
+    dispatch(setCartItems(cartItems, info));
   }
 
   const deleteItemData = () => {
     dispatch(deleteItem(info.id))
+    closeCart(true)
+
   }
 
   return (

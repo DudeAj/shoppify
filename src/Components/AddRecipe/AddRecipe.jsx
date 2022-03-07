@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import classes from './addRecipe.module.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { addCategory, addItemNew, setLoading} from '../../store/actions';
+import { addCategory, addItemNew, setLoading } from '../../store/actions';
 import CancelSave from './cancelSave/cancelSave';
 import Status from '../StatusMsg/Status';
 
 
-const AddRecipe = () => {
+const AddRecipe = ({ setShowList }) => {
 
     const category = useSelector(state => state.data.Categories);
     const msg = useSelector(state => state.data.status);
@@ -19,7 +19,7 @@ const AddRecipe = () => {
     const [newCat, setNewCat] = useState("");
     const [message, setMessage] = useState(null);
     const dispatch = useDispatch();
-    
+
     useEffect(() => {
         if (category.length > 0) {
             setCat(category[0].id);
@@ -34,13 +34,13 @@ const AddRecipe = () => {
 
     const addNewItem = () => {
         //event.preventDefault();
-        if(name === "" || note === "" || img === "" || cat === ""){
+        if (name === "" || note === "" || img === "" || cat === "") {
             setMessage("Please Fill All the fields carefully")
         }
         else {
             if (type) {
                 dispatch(addCategory(newCat, name, img, note))
-                
+
             } else {
                 dispatch(addItemNew(cat, name, img, note))
             }
@@ -50,9 +50,9 @@ const AddRecipe = () => {
             setCat("");
         }
 
-        setTimeout(()=> {
+        setTimeout(() => {
             setMessage(null);
-        },3000);
+        }, 3000);
     }
 
     return (
@@ -89,12 +89,12 @@ const AddRecipe = () => {
                                 <button type="button" className={classes.catBtn} onClick={() => setType(!type)}>{type ? "-" : "+"}</button>
                             </div>
                         </div>
-                        {message && <Status msg={message} type="error"/>}
-                        {msg && <Status msg={msg} type="success"/>}
+                        {message && <Status msg={message} type="error" />}
+                        {msg && <Status msg={msg} type="success" />}
                     </form>
                 </div >
             </div>
-            <CancelSave click={submitform} />
+            <CancelSave click={submitform} setShowList={setShowList} />
             {/* <button type="submit">Add Item</button> */}
         </div>
     )
