@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import classes from "./shoppinghistory.module.css";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import EventNoteIcon from '@mui/icons-material/EventNote';
@@ -13,6 +13,7 @@ const ShoppingList = () => {
   const dispatch = useDispatch();
   const arrayOfMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   const orders = useSelector(state => state.data.orders);
+  console.log(orders, "ordersrs")
 
   useEffect(() => {
     if (orders.length === 0) {
@@ -64,7 +65,9 @@ const ShoppingList = () => {
   }
 
   return (
+    
     <div className={classes.container}>
+      {/* {results} */}
       <div className={classes.main}>
         <h1 className={classes.heading}>Shopping history</h1>
         {data}

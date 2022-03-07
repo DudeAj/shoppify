@@ -6,7 +6,10 @@ import RotateLeftIcon from '@mui/icons-material/RotateLeft';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux';
 const Sidebar = ({ openCart }) => {
+    const cartItems = useSelector(state=> state.data.cart)
+
     return (
         <div className={classes.sidebar}>
             <img className={classes.img} src={img} alt="image"></img>
@@ -17,8 +20,10 @@ const Sidebar = ({ openCart }) => {
                     <li><Link to='/charts'><BarChartIcon /></Link></li>
                 </ul>
             </div>
+            
             <div className={classes.cart} onClick={openCart}>
-                <ShoppingCartIcon style={{ width: '20px', marginLeft: '8px' }} />
+            <div className={classes.box}><span className={classes.itemNum}>{cartItems.length}</span></div>
+                <ShoppingCartIcon style={{ width: '30px', position:'absolute', top:'28%', left:'20%' }} />
             </div>
 
         </div>

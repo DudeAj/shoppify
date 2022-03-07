@@ -1,5 +1,6 @@
+import "./App.css";
 
-import './App.css';
+
 import Details from './Components/Details/Details';
 import ShoppingHistory from './Components/Sidebar/Shopping-History/ShoppingHistory';
 import Sidebar from './Components/Sidebar/Sidebar';
@@ -23,6 +24,7 @@ function App() {
   const [showCart, setShowCart] = useState(true);
   const [showList, setShowList] = useState(true);
   const [summeryData, setSummeryData] = useState({cat:"", data:{}});
+  
   //const [showSummery, setShowList] = useState(true);
 
   const loader = useSelector(state=>state.data.loading);
@@ -32,15 +34,16 @@ function App() {
     setShowList(true);
   }
 
+  useEffect(() => {
+    dispatch(FetchOrders())
+    
+  }, []);
   const itemInfo = (name,data) => {
     setSummeryData({cat:name, data:data});
     setShowCart(false);
   }
 
-  useEffect(()=> {
-    dispatch(FetchOrders());
-  },[]);
-  
+ 
   return (
     <div className="App">
       <Sidebar openCart={handleCart} />
