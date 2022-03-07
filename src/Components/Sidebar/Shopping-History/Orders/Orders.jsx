@@ -5,25 +5,24 @@ import Category from './Category/Category';
 import { useSelector, useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { getCategory, LoadItems, setCart } from '../../../../store/actions/';
-import {useHistory, useParams} from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 
 const Main = () => {
     const param = useParams();
-    
+
     const categories = useSelector(state => state.data.Categories);
     const orders = useSelector(state => state.data.orders);
-    const dispatch = useDispatch();
     const [items, setItems] = useState([]);
-    
+
     useEffect(() => {
         console.log("its loaded")
         const itemLen = orders.filter(it => it.id === param.id);
         setItems(...itemLen);
     }, []);
-    
     console.log(items)
 
-    if(items.length === 0){
+
+    if (items.length === 0) {
         return <div>Loading</div>
     }
 
