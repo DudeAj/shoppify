@@ -9,20 +9,21 @@ import { useHistory, useParams } from 'react-router-dom';
 
 const Main = () => {
     const param = useParams();
+    const dispatch = useDispatch();
 
     const categories = useSelector(state => state.data.Categories);
     const orders = useSelector(state => state.data.orders);
     const [items, setItems] = useState([]);
 
     useEffect(() => {
+        dispatch(getCategory())
         console.log("its loaded")
         const itemLen = orders.filter(it => it.id === param.id);
         setItems(...itemLen);
-    }, []);
-    console.log(items)
+    }, [param]);
 
 
-    if (items.length === 0) {
+    if (!items || items.length === 0) {
         return <div>Loading</div>
     }
 

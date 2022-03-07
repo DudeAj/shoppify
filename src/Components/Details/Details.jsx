@@ -4,15 +4,10 @@ import Banner from './Banner/Banner';
 import ShoppingList from './ShoppingList/ShoppingList';
 import ActionContainer from './ActionContainer/ActionContainer.jsx'
 import AddRecipe from '../AddRecipe/AddRecipe';
-import StatusMsg from '../StatusMsg/Status';
-import { useSelector } from 'react-redux';
 
-
-const Details = ({showList, setShowList}) => {
-    //const [showList, setShowList] = useState(true);
-
-    const msg = useSelector(state=>state.data.status);
-    
+const Details = () => {
+    const [showList, setShowList] = useState(true);
+    const [listname, setListName] = useState("My List");
     const [changeName, setChangeName] = useState(false);
     return (
         <div className={classes.details}>
@@ -21,15 +16,14 @@ const Details = ({showList, setShowList}) => {
                     {showList
                         ? <>
                             <Banner list={showList} click={setShowList} />
-                            {msg && <StatusMsg msg={msg} type='success'/>}
-                            <ShoppingList changeName={changeName} change={setChangeName} />
+                            <ShoppingList title={listname} changeName={changeName} change={setChangeName} />
                         </>
-                        : <AddRecipe showList />}
-                    {showList ? <ActionContainer showList={showList} changeName={changeName} setChangeName={setChangeName}  /> : null}
+                        : <AddRecipe setShowList={setShowList} />}
+                    {showList ? <ActionContainer showList={showList} changeName={changeName} setChangeName={setChangeName} setListName={setListName} /> : null}
                 </div>
             </div>
         </div>
     )
 }
 
-export default Details;
+export default Details

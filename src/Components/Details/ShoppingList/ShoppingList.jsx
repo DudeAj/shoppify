@@ -15,7 +15,7 @@ const ShoppingList = ({ change, changeName }) => {
     setCart(category);
   }, [category])
 
-  console.log(cart.length)
+
   return (
 
     <div className={classes.ShoppingList}>
