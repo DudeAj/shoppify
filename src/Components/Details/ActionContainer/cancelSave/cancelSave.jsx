@@ -12,8 +12,6 @@ const CancelSave = () => {
   const [show, setShow] = useState(false);
 
   const order = () => {
-
-    console.log("nothing can be do")
     dispatch(OrderNow(cartItems, cartName, true));
   }
 

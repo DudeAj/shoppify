@@ -57,7 +57,7 @@ export const addCategory = (cat, name, icon, note) => {
 
             dispatch(addItemNew(response.data.name, name, icon, note))
             dispatch(getCategory())
-            console.log(response.data);
+
 
         } catch (err) {
             dispatch(apiCalls.setError(err.message));
@@ -66,7 +66,6 @@ export const addCategory = (cat, name, icon, note) => {
 }
 
 export const addItemNew = (id, name, icon, note) => {
-    console.log("its called", id);
 
     return async dispatch => {
         dispatch(apiCalls.setLoading(true));
@@ -127,7 +126,7 @@ export const FetchOrders = () => {
         dispatch(apiCalls.setLoading(true));
         try {
             const response = await axios.get(`Orders.json`);
-            // console.log(response.data);
+
             // dispatch(apiCalls.setOrders())
 
             const responseData = response.data
