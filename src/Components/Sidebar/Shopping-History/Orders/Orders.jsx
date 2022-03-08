@@ -5,30 +5,35 @@ import Category from './Category/Category';
 import { useSelector, useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { getCategory, LoadItems, setCart } from '../../../../store/actions/';
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory, useParams, Link } from 'react-router-dom';
+import { KeyboardBackspace, EventNote } from '@mui/icons-material';
 
 const Main = () => {
     const param = useParams();
+    const dispatch = useDispatch();
 
     const categories = useSelector(state => state.data.Categories);
     const orders = useSelector(state => state.data.orders);
     const [items, setItems] = useState([]);
 
     useEffect(() => {
-        console.log("its loaded")
+        dispatch(getCategory())
+
         const itemLen = orders.filter(it => it.id === param.id);
         setItems(...itemLen);
-    }, []);
-    console.log(items)
+    }, [param]);
 
 
-    if (items.length === 0) {
+    if (!items || items.length === 0) {
         return <div>Loading</div>
     }
-
     return (
         <div className={classes.main}>
-            <Topbar />
+            <div className={classes.topbar}>
+                <Link to="/" className={classes.back}><KeyboardBackspace />Back</Link>
+                <h1>{items.title}</h1>
+                <p className={classes.date}><EventNote fontSize="small" sx={{ marginRight: "5px" }} />{items.time.split("T")[0]}</p>
+            </div>
             <div className={classes.Elements}>
                 {categories.map(item => {
                     const cartItem = items.info.filter(it => it.category === item.id);
