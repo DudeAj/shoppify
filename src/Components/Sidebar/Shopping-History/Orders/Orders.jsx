@@ -18,7 +18,7 @@ const Main = () => {
 
     useEffect(() => {
         dispatch(getCategory())
-        console.log("its loaded")
+
         const itemLen = orders.filter(it => it.id === param.id);
         setItems(...itemLen);
     }, [param]);
@@ -27,9 +27,6 @@ const Main = () => {
     if (!items || items.length === 0) {
         return <div>Loading</div>
     }
-    const newdate = new Date(items.time)
-    console.log(items)
-
     return (
         <div className={classes.main}>
             <div className={classes.topbar}>
