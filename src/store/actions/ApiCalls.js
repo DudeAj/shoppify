@@ -130,6 +130,7 @@ export const FetchOrders = () => {
             // dispatch(apiCalls.setOrders())
 
             const responseData = response.data
+        
             const dataset = [];
             for (const item in responseData) {
                 dataset.push({
@@ -140,6 +141,7 @@ export const FetchOrders = () => {
                     status: responseData[item].status
                 });
             }
+            
             dispatch(apiCalls.setOrders(dataset))
             dispatch(apiCalls.setLoading(false));
 

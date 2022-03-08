@@ -25,7 +25,7 @@ const CancelSave = () => {
     <div className={classes.cancelSave}>
       {show && <PopUp confirm={clearCart} cancel={() => setShow(false)} />}
 
-      <button className={classes.cancel} onClick={() => setShow(true)}>cancel</button>
+      <button className={classes.cancel} disabled={!(cartItems.length)} onClick={() => setShow(true)}>cancel</button>
 
       <button className={classes.save} type="submit" disabled={!(cartItems.length)} onClick={order}>Complete</button>
     </div >
